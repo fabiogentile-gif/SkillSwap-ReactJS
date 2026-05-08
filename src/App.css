@@ -1,0 +1,22 @@
+.cards-container {
+  display: flex;
+  gap: 16px;
+
+  overflow-x: auto;
+  padding: 10px;
+
+  scroll-snap-type: x mandatory;
+}
+
+.cards-container > * {
+    flex: 1;
+}
+
+.cards-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.cards-scroll::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}

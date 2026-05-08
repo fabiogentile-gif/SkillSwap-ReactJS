@@ -1,0 +1,83 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.CatButton {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    background-color: #F5F5F5;
+    color: black;
+    box-shadow: 4px 5px rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+}
+
+/* SEARCH BAR */
+
+.searchContainer {
+    display: flex;
+    align-items: stretch;
+}
+
+.searchContainer input[type=text] {
+    padding: 10px;
+    width: 40em;
+    font-size: 17px;
+    border: 1px solid black;
+    border-right: none;
+    background: #F5F5F5;
+    outline: none;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.searchContainer button {
+    padding: 10px;
+    border: 1px solid black;
+    border-left: none;
+    background: #F5F5F5;
+    cursor: pointer;
+    
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.searchContainer button:hover {
+    background: #d9d9d9;
+    ;
+}
+
+/* NAVBAR */
+
+.navbarContainer {
+    display: flex;
+    justify-content: space-between;
+    background: #2D2D2D;
+    align-items: center;
+    padding: 1em 5em;
+    align-self: stretch;
+}
+
+.navbarContainer>button img {
+    height: 60px;
+}
+
+.navbarContainer>button {
+    background: none;
+    border: none;
+    outline: none;
+}
+
+/* TO REMOVE */
+
+.palla {
+    width: 50px;
+    height: 50px;
+    border: 5px solid red;
+    border-radius: 100px;
+}
