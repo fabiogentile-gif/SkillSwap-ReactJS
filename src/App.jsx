@@ -13,16 +13,16 @@ function App() {
     <>
       <NavBar />
 
-      <div className="cards-container" style={{marginTop:"40px"}}>
+      <div>
+        <HeaderMain />
+      </div>
+
+      <div className="cards-container" style={{ marginTop: "40px" }}>
         <MainCatButton title="Informatica" icon="informatica"></MainCatButton>
         <MainCatButton title="Arte" icon="arte"></MainCatButton>
         <MainCatButton title="Musica" icon="musica"></MainCatButton>
         <MainCatButton title="Artigianato" icon="artigianato"></MainCatButton>
         <MainCatButton title="Sociali" icon="sociali"></MainCatButton>
-      </div>
-
-      <div>
-        <HeaderMain/>
       </div>
 
     </>
