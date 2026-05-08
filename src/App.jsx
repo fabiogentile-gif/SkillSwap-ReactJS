@@ -4,6 +4,7 @@ import './App.css'
 
 import MainCatButton from './components/MainCategoryButton'
 import NavBar from './components/NavBar'
+import HeaderMain from './components/HeaderMain'
 
 
 function App() {
@@ -18,6 +19,10 @@ function App() {
         <MainCatButton title="Musica" icon="musica"></MainCatButton>
         <MainCatButton title="Artigianato" icon="artigianato"></MainCatButton>
         <MainCatButton title="Sociali" icon="sociali"></MainCatButton>
+      </div>
+
+      <div>
+        <HeaderMain/>
       </div>
 
     </>
