@@ -1,4 +1,4 @@
-*{
+* {
     font-family: Comfortaa;
 }
 
@@ -26,16 +26,21 @@
 .searchContainer {
     display: flex;
     align-items: stretch;
+    justify-content: center;
+    width: 100%;
+    max-width: 800px;
 }
 
 .searchContainer input[type=text] {
+    flex: 1;
+    min-width: 0;
     padding: 10px;
-    width: 40em;
     font-size: 17px;
     border: 1px solid black;
     border-right: none;
     background: #F5F5F5;
     outline: none;
+
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
 }
@@ -63,12 +68,14 @@
     justify-content: space-between;
     background: #2D2D2D;
     align-items: center;
-    padding: 1em 5em;
+    height: 100px;
+    padding: 0 50px;
     align-self: stretch;
 }
 
 .navbarContainer>button img {
     height: 60px;
+    display: block;
 }
 
 .navbarContainer>button {
@@ -77,18 +84,86 @@
     outline: none;
 }
 
-/* TO REMOVE */
+/* PROFILE BUTTON */
+.profilo-botton {
+    width: 60px;
+    height: 60px;
+    border: 3px solid #00B4D8;
+    border-radius: 50%;
+    padding: 0;
+    overflow: hidden;
 
-.palla {
-    width: 50px;
-    height: 50px;
-    border: 5px solid red;
-    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.profilo-botton img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.profilo-botton:hover {
+    border-color: #0299b7;
+}
+
+.button-menu {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 10px;
+    color: black;
+
+}
+
+.menu-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    background-color: rgb(32, 105, 60);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-top: 10px;
+    overflow: hidden;
+    padding-left: 0px;
+}
+
+.menu-dropdown li {
+    padding: 10px;
+    cursor: pointer;
+    list-style: none;
+}
+
+.dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+.buttonP {
+    width: 100%;
+    padding: 8px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    background-color: #e0e0e0;
+}
+
+.menu-list {
+    padding-left: 0px;
 }
 
 /* HEADER */
 
-.HeaderContainer{
+.HeaderContainer {
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -97,9 +172,9 @@
     margin-bottom: 6em;
 }
 
-.lineStyle{
-    height: 3px; 
-    background-color: black; 
+.lineStyle {
+    height: 3px;
+    background-color: black;
     align-self: center;
     width: 100%;
 }
@@ -113,3 +188,14 @@
     font-weight: 400;
     line-height: normal;
 }
+
+.tutorialContainer{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap:25px;
+    margin-top: 100px;
+    font-size: 25px;
+}
+
+
