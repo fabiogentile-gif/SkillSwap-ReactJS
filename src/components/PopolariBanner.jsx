@@ -1,4 +1,4 @@
-
+import CategoryButton from './CategoryButton'
 const TECNOLOGIE = {
   Informatica: [
     { nome: "Python",  icona: "🐍" },
@@ -128,7 +128,7 @@ export default function PopolariBanner({
  
         <div className="banner__tags">
           {tecnologie.map((tech) => (
-            <TagTecnologia
+            <CategoryButton
               key={tech.nome}
               nome={tech.nome}
               icona={tech.icona}

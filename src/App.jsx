@@ -12,15 +12,13 @@ function App() {
 
   return (
     <>
-      <NavBar />
-      
-<hr/>
-
-<PopolariBanner></PopolariBanner>
+      <div className=''>
+        <NavBar />
+        <PopolariBanner></PopolariBanner>
 
 
-
-</>
+      </div>
+    </>
   )
 }
 

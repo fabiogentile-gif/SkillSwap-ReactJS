@@ -67,7 +67,6 @@
     align-items: center;
     padding: 1em 2em;
     align-self: stretch;
-
 }
 
 .navbarContainer>button img {
@@ -82,23 +81,7 @@
 /*
 Banner Categoria
 */
-.banner {
-display: flex;
-width: 118.5rem;
-height: 24.75rem;
-justify-content: center;
-align-items: center;
-background-image: url("../assets/Informatica.png");
-}
 
-/* TO REMOVE */
-
-.palla {
-    width: 50px;
-    height: 50px;
-    border: 5px solid red;
-    border-radius: 100px;
-}
 
 /* Bottone profilo */
 .profilo-botton {
@@ -239,13 +222,18 @@ hr {
 /* Banner */
 
 .banner {
-  /* position e overflow servono per contenere
-     il pattern SVG che va in posizione assoluta  */
+  display: flex;
+  justify-content: space-around;
+  background: #2D2D2D;
+  align-items: center;
+  padding: 1em 2em;
+  align-self: stretch;
   position: relative;
   overflow: hidden;
-  border-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
   padding: 20px 28px;
-  /* background NON è qui: dipende dalla categoria */
+  height: 200px;
 }
  
 /* SVG del pattern ripetuto in background */
@@ -277,7 +265,6 @@ hr {
 
 .banner__titolo-categoria {
   font-weight: 600;
-
 }
  
 /* Riga orizzontale dei tag tecnologia */
@@ -308,4 +295,8 @@ hr {
  
 .tag:hover {
   background: rgba(255, 255, 255, 0.2);
+}
+
+.mainContainer{
+overflow: hidden;
 }
