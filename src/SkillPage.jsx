@@ -2,27 +2,22 @@ import { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import './App.css'
 
-
 import MainCatButton from './components/MainCategoryButton'
 import NavBar from './components/NavBar'
-import SearchBar from './components/SearchBar'
-import PopolariBanner from './components/PopolariBanner'
+
 
 function App() {
 
   return (
     <>
       <NavBar />
-      
-<hr/>
-
-<PopolariBanner></PopolariBanner>
+      <div className="cards-container" style={{marginTop:"40px"}}>
 
 
+      </div>
 
-</>
+    </>
   )
 }
-
 
 export default App

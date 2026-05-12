@@ -2,7 +2,7 @@ import './Components.css'
 import SearchBar from './SearchBar';
 import LogoImg from '../assets/Logo.svg'
 import { useState } from 'react';
-
+import Profilo from "./Profilo";
 
 export default function NavBar() {
     return (
@@ -12,10 +12,8 @@ export default function NavBar() {
                     <img src={LogoImg}></img>
                 </button>
                 <SearchBar />
-                <button>
-                    <div className='palla'></div>
-                </button>
-
+              <Profilo>
+              </Profilo>
             </div>
 
         </>

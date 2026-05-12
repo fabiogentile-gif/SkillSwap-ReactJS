@@ -1,6 +1,5 @@
-import placeholderProf from "../img/placeholderProf.png";
 import { useState } from "react";
-export default function Profilo({ img = placeholderProf }) {
+export default function Profilo({ img = "https://picsum.photos/id/237/200/300" }) {
   const [isClicked, setisClicked] = useState(false);
   return (
 
@@ -10,8 +9,6 @@ export default function Profilo({ img = placeholderProf }) {
         onClick={() => setisClicked(!isClicked)}
       >
         <img src={img} alt="Profilo" />
-
-
       </button>
       {isClicked && (
         <div className="menu-dropdown">
