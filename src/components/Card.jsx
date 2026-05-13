@@ -1,4 +1,4 @@
-import placeholderSkill from "../img/placeholderProf.png";
+
 export default function Card({
   description = "PlaceHolder",
   poster = `https://picsum.photos/seed/${encodeURIComponent(description)}/500/300`,
@@ -10,14 +10,14 @@ export default function Card({
 }) {
   return (
     
-      
+      <div>
         <button className="card" onClick={() => alert('palle')}>
       <img className="poster" src={poster} alt={description} />
       <hr />
       <div className="profileRow">
         <img
           id="miniProfile"
-          src={placeholderSkill}
+          src={poster}
           alt="placeholder skill"
         />
         <h2>{user}</h2>
@@ -26,6 +26,6 @@ export default function Card({
       <p>⭐{rating} ({recensioni})</p>
       <p>{ricerca}</p>
     </button>
-   
+   </div>
   );
 }

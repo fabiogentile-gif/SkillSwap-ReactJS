@@ -2,22 +2,25 @@ import { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import './App.css'
 
+
 import MainCatButton from './components/MainCategoryButton'
 import NavBar from './components/NavBar'
+import SearchBar from './components/SearchBar'
+import PopolariBanner from './components/PopolariBanner'
 
-
-function App() {
+function SkillPage() {
 
   return (
     <>
-      <NavBar />
-      <div className="cards-container" style={{marginTop:"40px"}}>
+      <div className=''>
+        <NavBar />
+        <PopolariBanner></PopolariBanner>
 
 
       </div>
-
     </>
   )
 }
 
-export default App
+
+export default SkillPage

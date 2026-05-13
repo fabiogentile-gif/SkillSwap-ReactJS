@@ -1,83 +1,86 @@
-*,*::after,*::before{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .CatButton {
-    width: 200px;
-    height: 200px;
-    border: 1px solid black;
-    background-color: #F5F5F5;
-    color: black;
-    box-shadow: 4px 5px rgba(0, 0, 0, 0.25);
-    box-sizing: border-box;
-    flex: 0 0 auto;
-    scroll-snap-align: start;
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  background-color: #F5F5F5;
+  color: black;
+  box-shadow: 4px 5px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
 }
 
 /* SEARCH BAR */
 
 .searchContainer {
-    display: flex;
-    align-items: stretch;
-    width: 60%;
+  display: flex;
+  align-items: stretch;
+  width: 60%;
 }
 
 .searchContainer input[type=text] {
-    padding: 10px;
-    width: 100%;
-    font-size: 17px;
-    border: 1px solid black;
-    border-right: none;
-    background: #F5F5F5;
-    outline: none;
-    border-top-left-radius: 15px;
-    border-bottom-left-radius: 15px;
+  padding: 10px;
+  width: 100%;
+  font-size: 17px;
+  border: 1px solid black;
+  border-right: none;
+  background: #F5F5F5;
+  outline: none;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
 
 .searchContainer button {
-    padding: 10px;
-    border: 1px solid black;
-    border-left: none;
-    background: #F5F5F5;
-    cursor: pointer;
+  padding: 10px;
+  border: 1px solid black;
+  border-left: none;
+  background: #F5F5F5;
+  cursor: pointer;
 
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
 .searchContainer button:hover {
-    background: #d9d9d9;
+  background: #d9d9d9;
 
 }
 
 /* NAVBAR */
 
 .navbarContainer {
-    display: flex;
-    justify-content: space-around;
-    background: #2D2D2D;
-    align-items: center;
-    padding: 1em 2em;
-    align-self: stretch;
+  display: flex;
+  justify-content: space-around;
+  background: #2D2D2D;
+  align-items: center;
+  padding: 1em 2em;
+  align-self: stretch;
 }
 
 .navbarContainer>button img {
-    height: 60px;
+  height: 60px;
 }
 
 .navbarContainer>button {
-    background: none;
-    border: none;
-    outline: none;
+  background: none;
+  border: none;
+  outline: none;
 }
+
 /*
 Banner Categoria
 */
@@ -85,24 +88,24 @@ Banner Categoria
 
 /* Bottone profilo */
 .profilo-botton {
- border: 3px solid var(--accent);
+  border: 3px solid var(--accent);
   border-radius: 50%;
-  width: 35px;      
+  width: 35px;
   height: 35px;
-  padding: 0;        
-  overflow: hidden;  
-  display: flex;     
+  padding: 0;
+  overflow: hidden;
+  display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background: none;  
+  background: none;
 }
 
 .profilo-botton img {
-  width: 100%;      
+  width: 100%;
   height: 100%;
-  object-fit: cover;  
-  border-radius: 50%; 
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .profilo-botton:hover {
@@ -116,23 +119,25 @@ Banner Categoria
   flex-direction: column;
   gap: 8px;
   margin: 10px;
-  color:black;
-  
+  color: black;
+
 }
+
 .menu-dropdown {
-  position: absolute; 
-  top: 100%;     
+  position: absolute;
+  top: 100%;
   left: 50%;
-  transform: translateX(-50%);         
+  transform: translateX(-50%);
   z-index: 1000;
   background-color: rgb(32, 105, 60);
   min-width: 160px;
-  box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   margin-top: 10px;
   overflow: hidden;
   padding-left: 0px;
 }
+
 .menu-dropdown li {
   padding: 10px;
   cursor: pointer;
@@ -143,18 +148,19 @@ Banner Categoria
   position: relative;
   display: inline-block;
 }
+
 .buttonP {
-  width: 100%;           
+  width: 100%;
   padding: 8px;
   cursor: pointer;
   border: 1px solid #ccc;
-  background-color: #e0e0e0; 
-  
+  background-color: #e0e0e0;
+
 }
 
-.menu-list{
+.menu-list {
   padding-left: 0px;
-  
+
 }
 
 /* //////////////////////////////////////////////////////////////////////////// */
@@ -170,17 +176,19 @@ Banner Categoria
   border: 1px solid var(--border);
 }
 
+/* 
 .card {
   display: flex;
   width: 22.4375rem;
-  height: 18.375rem;
+  height: 24rem;
   padding-bottom: 1.25rem;
   flex-direction: column;
   align-items: flex-start;
   background-color: aliceblue;
   border: 1px solid var(--border);
   border-radius: 10px;
-  color: black
+  color: black;
+  margin: 10px;
 }
 .card p {
 font-size: 1rem;
@@ -197,14 +205,15 @@ hr {
   font-size: 1.25rem;
   margin: 0.5rem 0;
   color:black;
-}
+} */
 
-#miniProfile{
+#miniProfile {
   width: 25px;
   height: 25px;
   border-radius: 100%;
   border: 1px solid black;
 }
+
 .poster {
   width: 100%;
   height: 170px;
@@ -219,6 +228,7 @@ hr {
   gap: 10px;
   padding: 5px;
 }
+
 /* Banner */
 
 .banner {
@@ -234,23 +244,27 @@ hr {
   border-bottom-left-radius: 8px;
   padding: 20px 28px;
   height: 200px;
+  margin-bottom: 25px;
 }
- 
+
 /* SVG del pattern ripetuto in background */
 .banner__pattern {
   position: absolute;
-  inset: 0;          /* = top:0 right:0 bottom:0 left:0 */
+  inset: 0;
+  /* = top:0 right:0 bottom:0 left:0 */
   width: 100%;
   height: 100%;
-  pointer-events: none; /* il mouse "passa attraverso" l'SVG */
+  pointer-events: none;
+  /* il mouse "passa attraverso" l'SVG */
 }
- 
+
 /* Contenitore del testo sopra al pattern */
 .banner__contenuto {
   position: relative;
-  z-index: 1;        /* sta sopra al pattern SVG */
+  z-index: 1;
+  /* sta sopra al pattern SVG */
 }
- 
+
 /* Titolo "I Più Popolari della Categoria:" */
 .banner__titolo {
   color: rgba(255, 255, 255, 0.75);
@@ -261,20 +275,21 @@ hr {
   text-align: center;
   margin-top: 0;
 }
- 
+
 
 .banner__titolo-categoria {
   font-weight: 600;
 }
- 
+
 /* Riga orizzontale dei tag tecnologia */
 .banner__tags {
   display: flex;
   gap: 10px;
   justify-content: center;
-  flex-wrap: wrap;    /* va a capo se non c'è spazio */
+  flex-wrap: wrap;
+  /* va a capo se non c'è spazio */
 }
- 
+
 /* --- SINGOLO TAG TECNOLOGIA --- */
 .tag {
   display: inline-flex;
@@ -292,11 +307,73 @@ hr {
   transition: background 0.2s;
   /* border è inline: usa il colore accent della categoria */
 }
- 
+
 .tag:hover {
   background: rgba(255, 255, 255, 0.2);
 }
 
-.mainContainer{
-overflow: hidden;
+.mainContainer {
+  overflow: hidden;
 }
+
+/* Card Container
+.cardContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+} */
+
+/* Footer */
+footer {
+  display: flex;
+  padding: 2.5625rem 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  background-color: #2D2D2D;
+}
+footer hr{
+  color:blue;
+}
+/*///////////////////////////griglia/////////////////////////////*/
+.card {
+  display: flex;
+  width: 22.4375rem;
+  height: 24rem;
+  padding-bottom: 1.25rem;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: aliceblue;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: black;
+  margin: 10px;
+}
+
+.card p {
+  font-size: 1rem;
+  padding-left: 10px;
+}
+
+hr {
+  width: 100%;
+  border: none;
+  border-top: 1px solid var(--border);
+}
+
+.card h2 {
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+  color: black;
+}
+
+
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(22.4375rem, 1fr));
+  gap: 20px;
+  justify-items: center;
+  padding: 20px;
+}
+
