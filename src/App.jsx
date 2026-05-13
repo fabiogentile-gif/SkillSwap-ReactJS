@@ -8,13 +8,14 @@ import NavBar from './components/NavBar'
 import SearchBar from './components/SearchBar'
 import PopolariBanner from './components/PopolariBanner'
 import Card from './components/Card'
+import FooterButton from './components/FooterButton'
 function App() {
 
- return (
-     <>
-       <div className='MainContainer'>
-         <NavBar />
-         <PopolariBanner></PopolariBanner>
+  return (
+    <>
+      <div className='MainContainer'>
+        <NavBar />
+        <PopolariBanner></PopolariBanner>
         <div className='cardContainer'>
           <Card></Card>
           <Card></Card>
@@ -26,14 +27,16 @@ function App() {
           <Card></Card>
           <Card></Card>
         </div>
-       </div>
-       <footer>
-<Card></Card>
-       </footer>
-     </>
-   )
- }
- 
+      </div>
+      <footer>
+        <FooterButton>
+          
+        </FooterButton>
+      </footer>
+    </>
+  )
+}
+
 
 
 export default App
