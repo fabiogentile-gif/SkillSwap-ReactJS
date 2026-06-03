@@ -1,4 +1,4 @@
-import './Components.css'
+import './Styles/HeaderMain.css'
 import NormalButton from './NormalButton'
 
 export default function HeaderMain() {

@@ -1,5 +1,6 @@
-*, *::before,
- *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -13,8 +14,8 @@
   scroll-snap-type: x mandatory;
 }
 
-.cards-container > * {
-    flex: 1;
+.cards-container>* {
+  flex: 1;
 }
 
 .cards-scroll::-webkit-scrollbar {
@@ -26,111 +27,23 @@
   border-radius: 10px;
 }
 
-/* Bottone profilo */
-.profilo-botton {
- border: 3px solid var(--accent);
-  border-radius: 50%;
-  width: 35px;      
-  height: 35px;
-  padding: 0;        
-  overflow: hidden;  
-  display: flex;     
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  background: none;  
+.bodyContainer {
+  width: 80%;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
-.profilo-botton img {
-  width: 100%;      
-  height: 100%;
-  object-fit: cover;  
-  border-radius: 50%; 
-}
 
-.profilo-botton:hover {
-  border-color: yellow;
-}
-
-.button-menu {
-  list-style-type: none;
-  padding: 0;
+.tutorialContainer {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin: 10px;
-  color:black;
-  
-}
-.menu-dropdown {
-  position: absolute; 
-  top: 100%;     
-  left: 50%;
-  transform: translateX(-50%);         
-  z-index: 1000;
-  background-color: rgb(32, 105, 60);
-  min-width: 160px;
-  box-shadow: 0px 8px 16px rgba(0,0,0,0.1);
-  border-radius: 8px;
-  margin-top: 10px;
-  overflow: hidden;
-  padding-left: 0px;
-}
-.menu-dropdown li {
-  padding: 10px;
-  cursor: pointer;
-  list-style: none;
+  text-align: left;
+  gap: 25px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  font-size: 25px;
 }
 
-.dropdown-container {
-  position: relative;
-  display: inline-block;
-}
-.buttonP {
-  width: 100%;           
-  padding: 8px;
-  cursor: pointer;
-  border: 1px solid #ccc;
-  background-color: #e0e0e0; 
-  
-}
-
-.menu-list{
-  padding-left: 0px;
-  
-}
-
-/* //////////////////////////////////////////////////////////////////////////// */
-/* .menu-conteiner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  background-color: rgb(19, 103, 177);
-  width: 25%;
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-   
-}
-*/
-/* .card {
-  display: flex;
-  width: 22.4375rem;
-  height: 18.375rem;
-  padding-bottom: 1.25rem;
-  flex-direction: column;
-  align-items: flex-start;
-  background-color: aliceblue;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  color: black
-}
-.card p {
-font-size: 1rem;
-padding-left: 10px;
-
-}
 hr {
   width: 100%;
   border: none;

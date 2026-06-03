@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Comfortaa;
 }
 
 .container {
@@ -24,144 +25,14 @@
   scroll-snap-align: start;
 }
 
-/* SEARCH BAR */
 
-.searchContainer {
-  display: flex;
-  align-items: stretch;
-  width: 60%;
-}
-
-.searchContainer input[type=text] {
-  padding: 10px;
-  width: 100%;
-  font-size: 17px;
-  border: 1px solid black;
-  border-right: none;
-  background: #F5F5F5;
-  outline: none;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
-}
-
-.searchContainer button {
-  padding: 10px;
-  border: 1px solid black;
-  border-left: none;
-  background: #F5F5F5;
-  cursor: pointer;
-
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
-}
-
-.searchContainer button:hover {
-  background: #d9d9d9;
-
-}
-
-/* NAVBAR */
-
-.navbarContainer {
-  display: flex;
-  justify-content: space-around;
-  background: #2D2D2D;
-  align-items: center;
-  padding: 1em 2em;
-  align-self: stretch;
-}
-
-.navbarContainer>button img {
-  height: 60px;
-}
-
-.navbarContainer>button {
-  background: none;
-  border: none;
-  outline: none;
-}
 
 /*
 Banner Categoria
 */
 
 
-/* Bottone profilo */
-.profilo-botton {
-  border: 3px solid var(--accent);
-  border-radius: 50%;
-  width: 35px;
-  height: 35px;
-  padding: 0;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  background: none;
-}
 
-.profilo-botton img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 50%;
-}
-
-.profilo-botton:hover {
-  border-color: yellow;
-}
-
-.button-menu {
-  list-style-type: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin: 10px;
-  color: black;
-
-}
-
-.menu-dropdown {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
-  background-color: rgb(32, 105, 60);
-  min-width: 160px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
-  margin-top: 10px;
-  overflow: hidden;
-  padding-left: 0px;
-}
-
-.menu-dropdown li {
-  padding: 10px;
-  cursor: pointer;
-  list-style: none;
-}
-
-.dropdown-container {
-  position: relative;
-  display: inline-block;
-}
-
-.buttonP {
-  width: 100%;
-  padding: 8px;
-  cursor: pointer;
-  border: 1px solid #ccc;
-  background-color: #e0e0e0;
-
-}
-
-.menu-list {
-  padding-left: 0px;
-
-}
 
 /* //////////////////////////////////////////////////////////////////////////// */
 .menu-conteiner {
@@ -175,37 +46,6 @@ Banner Categoria
   border-radius: 8px;
   border: 1px solid var(--border);
 }
-
-/* 
-.card {
-  display: flex;
-  width: 22.4375rem;
-  height: 24rem;
-  padding-bottom: 1.25rem;
-  flex-direction: column;
-  align-items: flex-start;
-  background-color: aliceblue;
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  color: black;
-  margin: 10px;
-}
-.card p {
-font-size: 1rem;
-padding-left: 10px;
-
-}
-hr {
-  width: 100%;
-  border: none;
-  border-top: 1px solid var(--border);
-}
-
-.card h2 {
-  font-size: 1.25rem;
-  margin: 0.5rem 0;
-  color:black;
-} */
 
 #miniProfile {
   width: 25px;
@@ -322,29 +162,8 @@ hr {
   justify-content: center;
 } */
 
-/* Footer */
-footer {
-  display: flex;
-  padding: 2.5625rem 0;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2.5rem;
-  background-color: #2D2D2D;
-}
-footer hr{
-  color:blue;
-}
-.footerBoxButton{
-display: flex;
-width: 12.8125rem;
-height: 25.625rem;
-padding: 1.25rem 0;
-flex-direction: column;
-align-items: center;
-gap: 1.5rem;
 
-}
+
 /*///////////////////////////griglia/////////////////////////////*/
 .card {
   display: flex;
@@ -384,39 +203,13 @@ hr {
   gap: 20px;
   justify-items: center;
   padding: 20px;
-}
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-.palla {
-    width: 50px;
-    height: 50px;
-    border: 5px solid red;
-    border-radius: 100px;
-}
-
-/* HEADER */
-
-.HeaderContainer{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 6em;
-    margin-bottom: 6em;
-}
-
-.lineStyle{
-    height: 3px; 
-    background-color: black; 
-    align-self: center;
-    width: 100%;
+  cursor: pointer;
+  flex-shrink: 0;
 }
 
 
-.HeaderBigText {
-    color: #00B4D8;
-    font-family: Comfortaa;
-    font-size: 55px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-}
+
