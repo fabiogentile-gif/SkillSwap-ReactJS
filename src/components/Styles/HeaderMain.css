@@ -1,0 +1,25 @@
+.HeaderContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 6em;
+  margin-bottom: 6em;
+  text-align: center;
+}
+
+.lineStyle {
+  height: 3px;
+  background-color: black;
+  align-self: center;
+  width: 100%;
+}
+
+
+.HeaderBigText {
+  color: #00B4D8;
+  font-size: 55px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

@@ -1,10 +1,14 @@
 import { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import './App.css'
-
 import MainCatButton from './components/MainCategoryButton'
 import NavBar from './components/NavBar'
+import SearchBar from './components/SearchBar'
+import PopolariBanner from './components/PopolariBanner'
+import Card from './components/Card'
 import HeaderMain from './components/HeaderMain'
+import VideoPlayer from './components/VideoPlayer'
+import FooterBox from './components/FooterBox'
 
 
 function App() {
@@ -24,11 +28,16 @@ function App() {
           <MainCatButton title="Artigianato" icon="artigianato"></MainCatButton>
           <MainCatButton title="Sociali" icon="sociali"></MainCatButton>
         </div>
+        <div className='tutorialContainer'>
+          <p>Come funziona SKILLSWAP</p>
+          <VideoPlayer />
+        </div>
       </div>
-
-
+      <FooterBox/>
     </>
   )
 }
+
+
 
 export default App
