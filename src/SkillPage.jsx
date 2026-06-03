@@ -7,12 +7,12 @@ import SearchBar from './components/SearchBar'
 import PopolariBanner from './components/PopolariBanner'
 import Card from './components/Card'
 import FooterBox from './components/FooterBox'
-function App() {
+function SkillPage() {
 
   return (
     <>
       <div className='MainContainer'>
-        <NavBar />
+        
         <PopolariBanner></PopolariBanner>
         <div className='cardContainer'>
           <Card></Card>
@@ -26,12 +26,10 @@ function App() {
           <Card></Card>
         </div>
       </div>
-      <FooterBox>
-      </FooterBox>
     </>
   )
 }
 
 
 
-export default App
+export default SkillPage

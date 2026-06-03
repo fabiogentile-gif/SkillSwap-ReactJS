@@ -14,8 +14,6 @@ import VideoPlayer from "./components/VideoPlayer";
 export default function Home() {
   return (
     <>
-      <NavBar />
-
       <div>
         <HeaderMain />
       </div>
@@ -36,7 +34,7 @@ export default function Home() {
           <VideoPlayer />
         </div>
       </div>
-      <FooterBox />
+
     </>
   );
 }

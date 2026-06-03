@@ -2,21 +2,27 @@ import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import MainCatButton from "./components/MainCategoryButton";
-import NavBar from "./components/NavBar";
-import SearchBar from "./components/SearchBar";
-import PopolariBanner from "./components/PopolariBanner";
-import Card from "./components/Card";
-import HeaderMain from "./components/HeaderMain";
-import FooterBox from "./components/FooterBox";
-import SkillPage from "./SkillPage"
+import SkillPage from "./SkillPage";
 import Home from "./Home";
+import BasicLayout from "./layout/BasicLayout";
 function App() {
-return <RouterProvider router={router} />;
+  return <RouterProvider router={router} />;
 }
 
-const router = createBrowserRouter([{ path: '/', element:<Home />},
-  {path: "/informatica", element:<SkillPage />}
+const router = createBrowserRouter([
+  {path:"/",
+  element: <BasicLayout />,
+  children: [
+    {
+      index: true,
+      element: <Home />
+    },
+    {
+      path: "/informatica",
+      element: <SkillPage/>
+    },
+  ]
+}  
 ]);
 
 export default App;
