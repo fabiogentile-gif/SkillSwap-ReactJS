@@ -8,26 +8,35 @@ import PopolariBanner from "./components/PopolariBanner";
 import Card from "./components/Card";
 import HeaderMain from "./components/HeaderMain";
 import FooterBox from "./components/FooterBox";
-import SkillPage from "./SkillPage"
+import SkillPage from "./SkillPage";
+import VideoPlayer from "./components/VideoPlayer";
 
-export default function Home(){
-      return (
+export default function Home() {
+  return (
     <>
       <NavBar />
 
       <div>
         <HeaderMain />
       </div>
-
-      <div className="cards-container" style={{ marginTop: "40px" }}>
-        <MainCatButton title="Informatica" icon="informatica" to="/informatica"></MainCatButton>
-        <MainCatButton title="Arte" icon="arte" to="/informatica"></MainCatButton>
-        <MainCatButton title="Musica" icon="musica" to="/informatica"></MainCatButton>
-        <MainCatButton title="Artigianato" icon="artigianato" to="/informatica"></MainCatButton>
-        <MainCatButton title="Sociali" icon="sociali" to="/Sociali"></MainCatButton>
+      <div className="bodyContainer">
+        <div className="cards-container" style={{ marginTop: "40px" }}>
+          <MainCatButton
+            title="Informatica"
+            icon="informatica"
+            to="/informatica"
+          />
+          <MainCatButton title="Arte" icon="arte" to="/arte"/>
+          <MainCatButton title="Musica" icon="musica" to="/musica" />
+          <MainCatButton title="Artigianato" icon="artigianato" to="/artigianato" />
+          <MainCatButton title="Sociali" icon="sociali" to="/Sociali"/>
+        </div>
+        <div className="tutorialContainer">
+          <p>Come funziona SKILLSWAP</p>
+          <VideoPlayer />
+        </div>
       </div>
-      <hr></hr>
-      <FooterBox></FooterBox>
+      <FooterBox />
     </>
   );
 }
