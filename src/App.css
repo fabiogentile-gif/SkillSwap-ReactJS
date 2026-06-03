@@ -8,8 +8,8 @@
   scroll-snap-type: x mandatory;
 }
 
-.cards-container > * {
-    flex: 1;
+.cards-container>* {
+  flex: 1;
 }
 
 .cards-scroll::-webkit-scrollbar {
@@ -19,4 +19,10 @@
 .cards-scroll::-webkit-scrollbar-thumb {
   background: #ccc;
   border-radius: 10px;
+}
+
+.bodyContainer {
+  margin: 0 auto;
+  text-align: center;
+  width: 80%;
 }
