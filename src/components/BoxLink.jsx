@@ -5,7 +5,7 @@ export default function BoxLink({ title, links }) {
       {title}
       <hr />
       {links.map((link) => (
-        <a style={{ display: "block" }} key={link}>
+        <a key={link} to={link}>
           {link}
         </a>
       ))}

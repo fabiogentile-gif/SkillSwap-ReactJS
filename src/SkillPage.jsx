@@ -6,7 +6,6 @@ import NavBar from './components/NavBar'
 import SearchBar from './components/SearchBar'
 import PopolariBanner from './components/PopolariBanner'
 import Card from './components/Card'
-import FooterButton from './components/FooterButton'
 import FooterBox from './components/FooterBox'
 function App() {
 

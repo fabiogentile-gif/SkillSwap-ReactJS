@@ -45,5 +45,79 @@
 }
 
 hr {
-  border:solid 1px red;
+  width: 100%;
+  border: none;
+  border-top: 1px solid var(--border);
 }
+
+.card h2 {
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+  color:black;
+}
+#miniProfile{
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  border: 1px solid black;
+}
+.poster {
+  width: 100%;
+  height: 170px;
+  border-radius: 10px 10px 0 0;
+  display: block;
+  object-fit: cover;
+}
+
+.profileRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px;
+} */
+
+/* FooterContainer */
+
+.footerBox {
+  color: white;
+  padding: 10px;
+  background-color: rgb(58, 50, 50);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.LinkBox {
+  border: 1px solid burlywood;
+  width: 21%;
+  padding: 15px;
+  overflow-wrap: break-word;
+  margin: 10px;
+  
+}
+
+.LinkBox a{
+  display: block;
+  padding: 5px;
+}
+
+.LinkBox a:hover {
+  color: aqua;
+}
+
+.underFooter{
+display: flex;
+width: 100%;
+justify-content: space-between;
+}
+ .partnerLinks{
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+ }
+
+ .partnerLinks button{
+  border-radius: 50%;
+ }

@@ -5,9 +5,9 @@ import arteImg from '../assets/brush-icon.svg'
 import musicaImg from '../assets/musicnote-icon.svg'
 import socialiImg from '../assets/user-icon.svg'
 import artigianatoImg from '../assets/ruler-icon.svg'
+import { Link } from 'react-router-dom';
 
-
-function MainCatButton({ title = "informatica", icon = "informatica" }) {
+function MainCatButton({ title = "informatica", icon = "informatica", to}) {
 
     const icons = {
         informatica: informaticaImg,
@@ -20,11 +20,11 @@ function MainCatButton({ title = "informatica", icon = "informatica" }) {
     return (
         <>
             <div className='container'>
-                <button className='CatButton' onClick={() => console.log("Funziona")}>
+                <Link className='CatButton' to={to}>
                     <img style={{ marginTop: '30px' }} src={icons[icon]} alt={title}></img>
                     <br />
                     <p style={{ marginTop: '30px' }} >{title}</p>
-                </button>
+                </Link>
             </div>
         </>
     )
