@@ -9,8 +9,11 @@ import PopolariBanner from "./components/PopolariBanner";
 import Card from "./components/Card";
 import HeaderMain from "./components/HeaderMain";
 import FooterBox from "./components/FooterBox";
-import SkillPage from "./SkillPage"
-import Home from "./Home";
+
+
+import SkillPage from "./pages/SkillPage"
+import Home from "./pages/Home";
+
 function App() {
 return <RouterProvider router={router} />;
 }
