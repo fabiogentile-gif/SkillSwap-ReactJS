@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "../App.css";
 import MainCatButton from "../components/MainCategoryButton";
@@ -10,10 +10,23 @@ import HeaderMain from "../components/HeaderMain";
 import FooterBox from "../components/FooterBox";
 import SkillPage from "./SkillPage";
 import VideoPlayer from "../components/VideoPlayer";
+import LoginPopUp from "../components/LoginPopup";
 
 export default function Home() {
+
+  const [showLogin, setShowLogin] = useState(false);
+
+
+  useEffect(() => {
+    setShowLogin(true);
+  }, []);
+
   return (
     <>
+      {showLogin && (
+        <LoginPopUp onClose={() => setShowLogin(false)} />
+      )}
+
       <NavBar />
 
       <div>
@@ -26,10 +39,10 @@ export default function Home() {
             icon="informatica"
             to="/informatica"
           />
-          <MainCatButton title="Arte" icon="arte" to="/arte"/>
+          <MainCatButton title="Arte" icon="arte" to="/arte" />
           <MainCatButton title="Musica" icon="musica" to="/musica" />
           <MainCatButton title="Artigianato" icon="artigianato" to="/artigianato" />
-          <MainCatButton title="Sociali" icon="sociali" to="/Sociali"/>
+          <MainCatButton title="Sociali" icon="sociali" to="/Sociali" />
         </div>
         <div className="tutorialContainer">
           <p>Come funziona SKILLSWAP</p>
