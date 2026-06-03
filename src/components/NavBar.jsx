@@ -1,9 +1,9 @@
-import './Components.css'
+import './Styles/NavBar.css'
 import SearchBar from './SearchBar';
 import UserIcon from './UserProfile'
 import LogoImg from '../assets/Logo.svg'
 import { useState } from 'react';
-
+import Profilo from "./Profilo";
 
 export default function NavBar() {
     return (
@@ -14,7 +14,6 @@ export default function NavBar() {
                 </button>
                 <SearchBar />
                 <UserIcon />
-
             </div>
 
         </>

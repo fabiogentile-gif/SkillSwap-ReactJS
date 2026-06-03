@@ -1,15 +1,21 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 .cards-container {
   display: flex;
   gap: 16px;
-
   overflow-x: auto;
   padding: 10px;
-
   scroll-snap-type: x mandatory;
 }
 
-.cards-container > * {
-    flex: 1;
+.cards-container>* {
+  flex: 1;
 }
 
 .cards-scroll::-webkit-scrollbar {
@@ -21,8 +27,23 @@
   border-radius: 10px;
 }
 
-.bodyContainer{
+.bodyContainer {
   width: 80%;
   max-width: 100%;
   margin: 0 auto;
+}
+
+
+.tutorialContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 25px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  font-size: 25px;
+}
+
+hr {
+  border:solid 1px red;
 }
