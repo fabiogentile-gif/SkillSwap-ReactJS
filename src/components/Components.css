@@ -11,6 +11,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  text-align: center;
 }
 
 .CatButton {
@@ -21,17 +22,9 @@
   color: black;
   box-shadow: 4px 5px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
-  flex: 0 0 auto;
   scroll-snap-align: start;
+  text-decoration: none;
 }
-
-
-
-/*
-Banner Categoria
-*/
-
-
 
 
 /* //////////////////////////////////////////////////////////////////////////// */
@@ -80,10 +73,8 @@ Banner Categoria
   align-self: stretch;
   position: relative;
   overflow: hidden;
-  border-bottom-right-radius: 8px;
-  border-bottom-left-radius: 8px;
   padding: 20px 28px;
-  height: 200px;
+  height: 300px;
   margin-bottom: 25px;
 }
 
@@ -108,7 +99,7 @@ Banner Categoria
 /* Titolo "I Più Popolari della Categoria:" */
 .banner__titolo {
   color: rgba(255, 255, 255, 0.75);
-  font-size: 13px;
+  font-size: 25px;
   letter-spacing: 0.05em;
   margin-bottom: 12px;
   font-family: sans-serif;
@@ -155,12 +146,12 @@ Banner Categoria
   overflow: hidden;
 }
 
-/* Card Container
 .cardContainer{
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-} */
+  justify-content: flex-start;
+  
+}
 
 
 
@@ -184,11 +175,6 @@ Banner Categoria
   padding-left: 10px;
 }
 
-hr {
-  width: 100%;
-  border: none;
-  border-top: 1px solid var(--border);
-}
 
 .card h2 {
   font-size: 1.25rem;
@@ -203,8 +189,7 @@ hr {
   gap: 20px;
   justify-items: center;
   padding: 20px;
-  display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 
   cursor: pointer;
