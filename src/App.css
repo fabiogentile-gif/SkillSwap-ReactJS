@@ -173,6 +173,7 @@ hr {
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .LinkBox {
@@ -185,6 +186,7 @@ hr {
 }
 
 .LinkBox a{
+  display: block;
   padding: 5px;
 }
 
@@ -203,6 +205,6 @@ justify-content: space-between;
   flex-wrap: wrap;
  }
 
- .partnerLinks img{
+ .partnerLinks button{
   border-radius: 50%;
  }
