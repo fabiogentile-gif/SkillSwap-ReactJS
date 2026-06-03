@@ -163,3 +163,46 @@ hr {
   padding: 5px;
 } */
 
+/* FooterContainer */
+
+.footerBox {
+  color: white;
+  padding: 10px;
+  background-color: rgb(58, 50, 50);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.LinkBox {
+  border: 1px solid burlywood;
+  width: 21%;
+  padding: 15px;
+  overflow-wrap: break-word;
+  margin: 10px;
+  
+}
+
+.LinkBox a{
+  padding: 5px;
+}
+
+.LinkBox a:hover {
+  color: aqua;
+}
+
+.underFooter{
+display: flex;
+width: 100%;
+justify-content: space-between;
+}
+ .partnerLinks{
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+ }
+
+ .partnerLinks img{
+  border-radius: 50%;
+ }

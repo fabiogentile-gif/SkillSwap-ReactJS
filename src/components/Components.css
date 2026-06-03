@@ -287,7 +287,7 @@ hr {
   gap: 10px;
   justify-content: center;
   flex-wrap: wrap;
-  /* va a capo se non c'è spazio */
+
 }
 
 /* --- SINGOLO TAG TECNOLOGIA --- */
@@ -305,7 +305,6 @@ hr {
   white-space: nowrap;
   cursor: pointer;
   transition: background 0.2s;
-  /* border è inline: usa il colore accent della categoria */
 }
 
 .tag:hover {
@@ -387,3 +386,37 @@ hr {
   padding: 20px;
 }
 
+.palla {
+    width: 50px;
+    height: 50px;
+    border: 5px solid red;
+    border-radius: 100px;
+}
+
+/* HEADER */
+
+.HeaderContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 6em;
+    margin-bottom: 6em;
+}
+
+.lineStyle{
+    height: 3px; 
+    background-color: black; 
+    align-self: center;
+    width: 100%;
+}
+
+
+.HeaderBigText {
+    color: #00B4D8;
+    font-family: Comfortaa;
+    font-size: 55px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
