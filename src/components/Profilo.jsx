@@ -1,17 +1,29 @@
 import { useState } from "react";
 import "./Styles/Profilo.css";
-export default function Profilo({ img = "https://picsum.photos/id/237/200/300" }) {
+import UserDeafultIcon from '../assets/user-icon.svg'
+
+export default function Profilo({ isLogged, onProfileClick, img = UserDeafultIcon }) {
   const [isClicked, setisClicked] = useState(false);
+
+  const handleClick = () => {
+    if(!isLogged){
+      onProfileClick()
+      return
+    }
+    setisClicked(prev => !prev)
+  }
+
+
   return (
 
     <div className="dropdown-container">
       <button
         className="profilo-botton"
-        onClick={() => setisClicked(!isClicked)}
+        onClick={handleClick}
       >
         <img src={img} alt="Profilo" />
       </button>
-      {isClicked && (
+      {isLogged && isClicked && (
         <div className="menu-dropdown">
           <ul className="menu-list">
             <li><button className="buttonP" onClick={() => console.log("Profilo")}>Profilo</button></li>
@@ -21,6 +33,6 @@ export default function Profilo({ img = "https://picsum.photos/id/237/200/300" }
           </ul>
         </div>
       )}
-  </div>
+    </div>
   );
 }

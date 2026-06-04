@@ -10,24 +10,46 @@ import HeaderMain from "../components/HeaderMain";
 import FooterBox from "../components/FooterBox";
 import SkillPage from "./SkillPage";
 import VideoPlayer from "../components/VideoPlayer";
-import LoginPopUp from "../components/LoginPopup";
+import LoginPopUp from "../components/LoginPopUp";
+import LoginForm from "../components/LoginForm";
 
 export default function Home() {
 
   const [showLogin, setShowLogin] = useState(false);
+  const [isLogged, setIsLogged] = useState(false);
+  const [pages, setPages] = useState("Login");
 
+  const firstPopUp = !isLogged && showLogin
 
   useEffect(() => {
     setShowLogin(true);
   }, []);
 
+  const handleProfileClick = () => {
+    if (!isLogged) {
+      setShowLogin(true);
+      return;
+    }
+  }
+
+
   return (
     <>
-      {showLogin && (
-        <LoginPopUp onClose={() => setShowLogin(false)} />
+      {firstPopUp && (
+        <LoginPopUp
+          onClose={() => setShowLogin(false)}
+          onLogin={() => { setShowLogin(false); setIsLogged(true); }}
+          onClickEmail={() => { setPages("LoginForm"); setShowLogin(false); }} 
+          />
+      )}
+      {pages === "LoginForm" && (
+        <LoginForm 
+        onClose={() => {setPages("Login");setShowLogin(true)}} 
+        onSubmit={() => { setShowLogin(false); setIsLogged(true); }} 
+        />
       )}
 
-      <NavBar />
+      <NavBar isLogged={isLogged} onProfileClick={handleProfileClick} />
 
       <div>
         <HeaderMain />

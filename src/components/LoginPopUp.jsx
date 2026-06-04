@@ -1,7 +1,7 @@
 import './Styles/LoginPopUp.css';
 import loginimg from '../assets/imageLogin.svg';
 
-export default function LoginPopUp({ onClose }) {
+export default function LoginPopUp({ onClose,onClickEmail }) {
   return (
     <div className="overlay" onClick={onClose}>
       <div
@@ -20,7 +20,7 @@ export default function LoginPopUp({ onClose }) {
           <h1>Benvenuto</h1>
           <h3>Accedi per continuare</h3>
 
-          <button className="email-btn">
+          <button className="email-btn" onClick={onClickEmail}>
             Continua con Email
           </button>
 
