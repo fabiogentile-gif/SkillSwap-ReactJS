@@ -18,38 +18,46 @@ export default function Home() {
   const [showLogin, setShowLogin] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
   const [pages, setPages] = useState("Login");
+  const [user, setUser] = useState(null);
 
   const firstPopUp = !isLogged && showLogin
 
   useEffect(() => {
-    setShowLogin(true);
+    const timer = setTimeout(() => {
+      setShowLogin(true);
+    }, 1000)
+    return () => clearTimeout(timer);
+
   }, []);
 
   const handleProfileClick = () => {
-    if (!isLogged) {
+    if (user != null)
+      setIsLogged(true);
+    else if (!isLogged) {
       setShowLogin(true);
       return;
     }
   }
 
 
+
   return (
     <>
-      {firstPopUp && (
+      {firstPopUp && user === null && (
         <LoginPopUp
           onClose={() => setShowLogin(false)}
           onLogin={() => { setShowLogin(false); setIsLogged(true); }}
-          onClickEmail={() => { setPages("LoginForm"); setShowLogin(false); }} 
-          />
+          onClickEmail={() => { setPages("LoginForm"); setShowLogin(false); }}
+        />
       )}
-      {pages === "LoginForm" && (
-        <LoginForm 
-        onClose={() => {setPages("Login");setShowLogin(true)}} 
-        onSubmit={() => { setShowLogin(false); setIsLogged(true); }} 
+      {pages === "LoginForm" && user === null && (
+        <LoginForm
+          onClose={() => { setPages("Login"); setShowLogin(true) }}
+          onLogin={setUser}
         />
       )}
 
-      <NavBar isLogged={isLogged} onProfileClick={handleProfileClick} />
+      <NavBar isLogged={isLogged} onProfileClick={handleProfileClick} user={user?.avatar} />
 
       <div>
         <HeaderMain />

@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./Styles/Profilo.css";
 import UserDeafultIcon from '../assets/user-icon.svg'
 
-export default function Profilo({ isLogged, onProfileClick, img = UserDeafultIcon }) {
+export default function Profilo({ isLogged, onProfileClick, avatar = UserDeafultIcon}) {
   const [isClicked, setisClicked] = useState(false);
 
   const handleClick = () => {
@@ -21,7 +21,7 @@ export default function Profilo({ isLogged, onProfileClick, img = UserDeafultIco
         className="profilo-botton"
         onClick={handleClick}
       >
-        <img src={img} alt="Profilo" />
+        <img src={avatar} alt="Profilo" />
       </button>
       {isLogged && isClicked && (
         <div className="menu-dropdown">
