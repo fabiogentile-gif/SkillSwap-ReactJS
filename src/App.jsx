@@ -2,7 +2,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import SkillPage from "./pages/SkillPage"
 import Home from "./pages/Home";
-import { useState } from "react";
 
 function App() {
   return <RouterProvider router={router} />;
