@@ -4,7 +4,7 @@ import LogoImg from '../assets/Logo.svg'
 import { useState } from 'react';
 import Profilo from "./Profilo";
 
-export default function NavBar({isLogged,onProfileClick,user}) {
+export default function NavBar() {
     return (
         <>
             <div className='navbarContainer'>
@@ -12,7 +12,7 @@ export default function NavBar({isLogged,onProfileClick,user}) {
                     <img src={LogoImg}></img>
                 </button>
                 <SearchBar />
-                <Profilo isLogged={isLogged} onProfileClick={onProfileClick} avatar={user} />
+                <Profilo />
             </div>
 
         </>

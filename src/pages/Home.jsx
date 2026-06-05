@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "../App.css";
 import MainCatButton from "../components/MainCategoryButton";
@@ -10,54 +10,29 @@ import HeaderMain from "../components/HeaderMain";
 import FooterBox from "../components/FooterBox";
 import SkillPage from "./SkillPage";
 import VideoPlayer from "../components/VideoPlayer";
-import LoginPopUp from "../components/LoginPopUp";
-import LoginForm from "../components/LoginForm";
+import { UserContext } from "../contexts/UserContext"
+import LoginController from "../components/LoginController";
 
 export default function Home() {
-
-  const [showLogin, setShowLogin] = useState(false);
-  const [isLogged, setIsLogged] = useState(false);
-  const [pages, setPages] = useState("Login");
-  const [user, setUser] = useState(null);
-
-  const firstPopUp = !isLogged && showLogin
+  const [initialization, setinitialization] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowLogin(true);
+      setinitialization(true);
     }, 1000)
     return () => clearTimeout(timer);
 
   }, []);
 
-  const handleProfileClick = () => {
-    if (user != null)
-      setIsLogged(true);
-    else if (!isLogged) {
-      setShowLogin(true);
-      return;
-    }
-  }
-
-
-
   return (
     <>
-      {firstPopUp && user === null && (
-        <LoginPopUp
-          onClose={() => setShowLogin(false)}
-          onLogin={() => { setShowLogin(false); setIsLogged(true); }}
-          onClickEmail={() => { setPages("LoginForm"); setShowLogin(false); }}
-        />
-      )}
-      {pages === "LoginForm" && user === null && (
-        <LoginForm
-          onClose={() => { setPages("Login"); setShowLogin(true) }}
-          onLogin={setUser}
-        />
-      )}
+      {initialization && (
+        <LoginController />
+      )
+      }
 
-      <NavBar isLogged={isLogged} onProfileClick={handleProfileClick} user={user?.avatar} />
+
+      <NavBar />
 
       <div>
         <HeaderMain />

@@ -1,9 +1,12 @@
-import './Styles/LoginForm.css';
-import loginimg from '../assets/imageLogin.svg';
-import { useState } from 'react';
+import '../Styles/LoginForm.css';
+import loginimg from '../../assets/imageLogin.svg';
+import { useState, useContext } from 'react';
+import { UserContext } from '../../contexts/UserContext';
 
-export default function LoginForm({ onClose, onLogin }) {
+export default function LoginForm({ onClose }) {
   const [email, setEmail] = useState("");
+  const { setUser } = useContext(UserContext);
+  const { setloggedIn } = useContext(UserContext);
 
   const handleLogin = async () => {
 
@@ -17,7 +20,8 @@ export default function LoginForm({ onClose, onLogin }) {
       );
 
       if (foundUser) {
-        onLogin(foundUser);
+        setUser(foundUser);
+        setloggedIn(true);
       } else {
         alert("Utente non trovato");
       }
@@ -27,13 +31,10 @@ export default function LoginForm({ onClose, onLogin }) {
     }
   };
 
-
-
-
   return (
     <div className="overlay" onClick={onClose}>
       <div
-        className="popup-container"
+        className="popup-Formcontainer"
         onClick={(e) => e.stopPropagation()}
       >
         <button className="close-btn" onClick={onClose}>

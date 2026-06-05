@@ -1,11 +1,11 @@
-import './Styles/LoginPopUp.css';
-import loginimg from '../assets/imageLogin.svg';
+import '../Styles/LoginPopUp.css';
+import loginimg from '../../assets/imageLogin.svg';
 
 export default function LoginPopUp({ onClose,onClickEmail }) {
   return (
     <div className="overlay" onClick={onClose}>
       <div
-        className="popup-container"
+        className="popup-Formcontainer"
         onClick={(e) => e.stopPropagation()}
       >
         <button className="close-btn" onClick={onClose}>
