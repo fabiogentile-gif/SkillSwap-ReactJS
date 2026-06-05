@@ -21,7 +21,7 @@ function MainCatButton({ title = "informatica", icon = "informatica", to}) {
         <>
             <div className='container'>
                 <Link className='CatButton' to={to}>
-                    <img style={{ marginTop: '30px' }} src={icons[icon]} alt={title}></img>
+                    <img style={{ marginTop: '50px' }} src={icons[icon]} alt={title}></img>
                     <br />
                     <p style={{ marginTop: '30px' }} >{title}</p>
                 </Link>

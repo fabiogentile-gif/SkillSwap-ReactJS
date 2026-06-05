@@ -1,15 +1,15 @@
 import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import "./App.css";
-import MainCatButton from "./components/MainCategoryButton";
-import NavBar from "./components/NavBar";
-import SearchBar from "./components/SearchBar";
-import PopolariBanner from "./components/PopolariBanner";
-import Card from "./components/Card";
-import HeaderMain from "./components/HeaderMain";
-import FooterBox from "./components/FooterBox";
+import "../App.css";
+import MainCatButton from "../components/MainCategoryButton";
+import NavBar from "../components/NavBar";
+import SearchBar from "../components/SearchBar";
+import PopolariBanner from "../components/PopolariBanner";
+import Card from "../components/Card";
+import HeaderMain from "../components/HeaderMain";
+import FooterBox from "../components/FooterBox";
 import SkillPage from "./SkillPage";
-import VideoPlayer from "./components/VideoPlayer";
+import VideoPlayer from "../components/VideoPlayer";
 
 export default function Home() {
   return (

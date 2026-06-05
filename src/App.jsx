@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import SkillPage from "./SkillPage";
-import Home from "./Home";
+import Home from "./pages/Home";
 import BasicLayout from "./layout/BasicLayout";
 function App() {
   return <RouterProvider router={router} />;
