@@ -3,9 +3,9 @@ import { UserContext } from "../contexts/UserContext";
 import SearchBar from './SearchBar';
 import Profilo from "./Profilo";
 import AccessButton from "./AccessButton";
+import LogoButton from './LogoButton';
 
 import './Styles/NavBar.css'
-import LogoImg from '../assets/Logo.svg'
 
 export default function NavBar() {
     const { loggedIn } = useContext(UserContext);
@@ -13,9 +13,7 @@ export default function NavBar() {
     return (
         <>
             <div className='navbarContainer'>
-                <button style={{ background: "none", border: "none", outline: "none" }} onClick={() => console.log("Go to MainPage")}>
-                    <img src={LogoImg}></img>
-                </button>
+                <LogoButton />
                 <SearchBar />
                 {!loggedIn ?
                     <AccessButton />

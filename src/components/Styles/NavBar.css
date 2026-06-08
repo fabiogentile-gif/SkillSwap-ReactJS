@@ -53,14 +53,4 @@
   align-self: stretch;
 }
 
-.navbarContainer>button img {
-  height: 60px;
-  display: block;
-}
-
-.navbarContainer>button {
-  background: none;
-  border: none;
-  outline: none;
-}
 

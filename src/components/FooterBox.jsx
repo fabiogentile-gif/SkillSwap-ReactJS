@@ -1,4 +1,6 @@
 import BoxLink from "./BoxLink.jsx";
+import LogoButton from './LogoButton';
+
 
 import "./Styles/Footer.css";
 import LogoImg from "../assets/Logo.svg";
@@ -43,17 +45,7 @@ export default function FooterBox() {
 
       <hr />
       <div className="underFooter">
-        <button
-          style={{
-            background: "none",
-            border: "none",
-            outline: "none",
-            display: "block",
-          }}
-          onClick={() => console.log("Go to MainPage")}
-        >
-          <img src={LogoImg} alt="logo" />
-        </button>
+        <LogoButton height="" />
         <div className="partnerLinks">
           <button>
             <img src={Insta} alt="instagram" />
