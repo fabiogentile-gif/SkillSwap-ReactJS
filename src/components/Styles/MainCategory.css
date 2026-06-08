@@ -1,0 +1,29 @@
+.cardsContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 50px;
+
+  overflow-x: auto;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+.CatButton {
+    flex: 0 0 auto;
+
+    width: 200px;
+    height: 200px;
+
+    border: 1px solid black;
+    background-color: #F5F5F5;
+    color: black;
+    box-shadow: 4px 5px rgba(0, 0, 0, 0.25);
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+.cardsWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

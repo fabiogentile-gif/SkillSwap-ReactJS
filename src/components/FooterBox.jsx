@@ -1,10 +1,12 @@
 import BoxLink from "./BoxLink.jsx";
+
 import "./Styles/Footer.css";
 import LogoImg from "../assets/Logo.svg";
 import Insta from "../assets/insta.png";
 import Linkedin from "../assets/Linke.png";
 import Tiktok from "../assets/TikToccati.png";
 import FaceBook from "../assets/LibroFaccia.png";
+
 const footerData = [
   {
     title: "Categorie",
@@ -39,7 +41,7 @@ export default function FooterBox() {
         ))}
       </div>
 
-      <hr/>
+      <hr />
       <div className="underFooter">
         <button
           style={{
