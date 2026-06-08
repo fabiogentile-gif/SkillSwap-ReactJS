@@ -7,17 +7,20 @@ export default function LoginController() {
 
     const [pages, setPages] = useState("Login");
 
-    const { loggedIn, setShowLogin, showLogin } = useContext(UserContext);
+    const { loggedIn, setShowLogin, showLogin, firstTimeShown, setFirstTimeShown } = useContext(UserContext);
 
 
     const firstPopUp = !loggedIn && showLogin
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setShowLogin(true);
-        }, 1000)
-        return () => clearTimeout(timer);
+        if (!loggedIn && !firstTimeShown) {
+            const timer = setTimeout(() => {
+                setShowLogin(true);
+                setFirstTimeShown(true);
+            }, 1000);
 
+            return () => clearTimeout(timer);
+        }
     }, []);
 
     return (

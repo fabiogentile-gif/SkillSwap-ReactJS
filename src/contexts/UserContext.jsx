@@ -6,6 +6,7 @@ export function UserProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loggedIn, setloggedIn] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
+  const [firstTimeShown, setFirstTimeShown] = useState(false);
 
   return (
     <UserContext.Provider
@@ -16,6 +17,9 @@ export function UserProvider({ children }) {
         setloggedIn,
         showLogin,
         setShowLogin,
+        firstTimeShown,
+        setFirstTimeShown,
+
       }}
     >
       {children}
