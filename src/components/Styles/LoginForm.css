@@ -14,7 +14,6 @@
     justify-content: center;
     gap: 1rem;
 
-    max-width: 300px;
 }
 
 .content-section h1 {
@@ -29,7 +28,7 @@
 }
 
 input {
-    padding:5px;
+    padding: 5px;
     border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, 0.50);
 }
@@ -68,16 +67,30 @@ input {
     background: #f3f4f6;
 }
 
+/* FORM */
+
 .formContainer {
     display: flex;
     flex-direction: column;
 }
 
 .EmailContainer,
+.UsernameContainer,
 .PasswordContainer {
     margin-top: 10px;
     display: flex;
     flex-direction: column;
+}
+
+.RowNameContainer {
+    display: flex;
+    gap: 20px;
+}
+
+.NameContainer {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 h2 {
@@ -139,4 +152,45 @@ h2 {
 
     font-size: 1.2rem;
     cursor: pointer;
+}
+
+/* registration-popup */
+
+.overlayreg {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.6);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 2;
+}
+
+.popup-FormRegcontainer {
+    position: relative;
+
+    background: white;
+    border-radius: 20px;
+
+    padding: 2rem;
+    width: 1200px;
+    height: 800px;
+    max-width: 90%;
+
+    display: flex;
+    gap: 2rem;
+    justify-content: space-evenly;
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.valid {
+    color: green;
+}
+
+.invalid {
+    color: red;
 }

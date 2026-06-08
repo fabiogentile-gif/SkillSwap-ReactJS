@@ -4,7 +4,7 @@ import { UserContext } from "../contexts/UserContext";
 
 export default function AccessButton({ color }) {
 
-    const { setShowLogin } = useContext(UserContext);
+    const { setShowLogin, setPages } = useContext(UserContext);
 
     const ButtonStyle = {
         background: color,
@@ -20,7 +20,7 @@ export default function AccessButton({ color }) {
         setShowLogin(true)
     }
     function HandleRegistration() {
-
+        setPages("RegistrationForm")
     }
 
     return (

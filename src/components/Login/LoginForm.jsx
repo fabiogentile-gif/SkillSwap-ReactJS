@@ -3,7 +3,7 @@ import loginimg from '../../assets/imageLogin.svg';
 import { useState, useContext } from 'react';
 import { UserContext } from '../../contexts/UserContext';
 
-export default function LoginForm({ onClose }) {
+export default function LoginForm({ onClose, onClickRegister }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { setUser } = useContext(UserContext);
@@ -57,8 +57,8 @@ export default function LoginForm({ onClose }) {
             <div className='PasswordContainer'>
               <label>Password</label>
               <input type='password' value={password} onChange={(e) => setPassword(e.target.value)} />
-
             </div>
+
             <button className="submit-btn" onClick={handleLogin} type="button">
               Conferma
             </button>
@@ -69,7 +69,16 @@ export default function LoginForm({ onClose }) {
             Continua con Google
           </button>
 
-          <p>Se non hai un account Registrati</p>
+          <p>
+            Se non hai un account <span
+              onClick={onClickRegister}
+              style={{
+                color: "black",
+                textDecoration: "underline",
+                cursor: "pointer",
+              }}
+            >Registrati
+            </span></p>
         </div>
       </div>
     </div>

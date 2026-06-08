@@ -7,6 +7,7 @@ export function UserProvider({ children }) {
   const [loggedIn, setloggedIn] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [firstTimeShown, setFirstTimeShown] = useState(false);
+  const [pages, setPages] = useState("Login");
 
   return (
     <UserContext.Provider
@@ -19,6 +20,8 @@ export function UserProvider({ children }) {
         setShowLogin,
         firstTimeShown,
         setFirstTimeShown,
+        pages,
+        setPages,
 
       }}
     >

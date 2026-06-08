@@ -1,13 +1,11 @@
 import { useEffect, useState, useContext } from "react";
 import LoginForm from "./Login/LoginForm";
 import LoginPopUp from "./Login/LoginPopUp";
+import RegistrationForm from "./Login/RegistrationForm";
 import { UserContext } from "../contexts/UserContext";
 
 export default function LoginController() {
-
-    const [pages, setPages] = useState("Login");
-
-    const { loggedIn, setShowLogin, showLogin, firstTimeShown, setFirstTimeShown } = useContext(UserContext);
+    const { loggedIn, setShowLogin, showLogin, firstTimeShown, setFirstTimeShown, pages, setPages } = useContext(UserContext);
 
 
     const firstPopUp = !loggedIn && showLogin
@@ -34,7 +32,16 @@ export default function LoginController() {
 
             {pages === "LoginForm" && !loggedIn && (
                 <LoginForm
-                    onClose={() => { setPages("Login"); setShowLogin(true) }}
+                    onClose={() => { setPages("Login") }}
+                    onClickRegister={() => { setPages("RegistrationForm") }}
+                />
+            )}
+
+            {pages === "RegistrationForm" && !loggedIn && (
+                <RegistrationForm
+                    onCloseBig={() => setPages(null)}
+                    onClose={() => setPages("Login") }
+                    onClickLogin={() => setPages("LoginForm")}
                 />
             )}
         </div>
