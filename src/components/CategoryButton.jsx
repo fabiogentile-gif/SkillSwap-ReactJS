@@ -33,7 +33,7 @@ const Icona = {
   Tessitura: "🧶",
 };
 
-export default function CategoryButton({ coloreAccento,categoryId  }) {
+export default function CategoryButton({ coloreAccento,categoryId}) {
 
   const [data, setData] = useState([]);
 
@@ -44,7 +44,7 @@ export default function CategoryButton({ coloreAccento,categoryId  }) {
   }, []);
 
     const subcategories = data.filter(
-    item => item.categoryId === categoryId
+    item => item.categoryId === Number(categoryId)
   );
 
   return (

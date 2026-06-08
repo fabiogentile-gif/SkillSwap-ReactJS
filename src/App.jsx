@@ -9,7 +9,7 @@ function App() {
 
 const router = createBrowserRouter([
   { path: '/', element: <Home /> },
-  { path: "/informatica", element: <Category /> }
+  { path: "/categoria/:id", element: <Category /> }
 ]);
 
 export default App;

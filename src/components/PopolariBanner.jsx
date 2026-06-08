@@ -1,4 +1,6 @@
+import { useState, useEffect } from 'react';
 import CategoryButton from './CategoryButton'
+
 const TEMI_CATEGORIA = {
   Informatica: {
     bgFrom: "#0a2e1a",
@@ -8,26 +10,44 @@ const TEMI_CATEGORIA = {
     patternType: "binary",
   },
 
-  Design: {
-    bgFrom: "#0f172a",
-    bgTo: "#1e3a5f",
-    accent: "#60a5fa",
-    patternColor: "rgba(96,165,250,0.12)",
-    patternType: "grid",
-  },
-  Marketing: {
-    bgFrom: "#1c0a00",
-    bgTo: "#7c2d00",
-    accent: "#f97316",
-    patternColor: "rgba(249,115,22,0.12)",
-    patternType: "dots",
-  },
   Musica: {
     bgFrom: "#1a0a2e",
     bgTo: "#3b0764",
     accent: "#a855f7",
     patternColor: "rgba(168,85,247,0.12)",
     patternType: "waves",
+  },
+
+  Lingue: {
+    bgFrom: "#0b1f2a",
+    bgTo: "#134e4a",
+    accent: "#14b8a6",
+    patternColor: "rgba(20,184,166,0.12)",
+    patternType: "grid",
+  },
+
+  Arte: {
+    bgFrom: "#2a0b1f",
+    bgTo: "#4c1d95",
+    accent: "#ec4899",
+    patternColor: "rgba(236,72,153,0.12)",
+    patternType: "brush",
+  },
+
+  Sociali: {
+    bgFrom: "#1f1f1f",
+    bgTo: "#3f3f3f",
+    accent: "#facc15",
+    patternColor: "rgba(250,204,21,0.12)",
+    patternType: "dots",
+  },
+
+  Artigianato: {
+    bgFrom: "#2b1b0f",
+    bgTo: "#5b3a1e",
+    accent: "#d97706",
+    patternColor: "rgba(217,119,6,0.12)",
+    patternType: "wood",
   },
 };
 
@@ -60,9 +80,24 @@ function getPattern(tipo, colore) {
   }
 }
 
-export default function PopolariBanner({categoria,titoloPre = "I Più Popolari della Categoria:"}) {
-  const tema = TEMI_CATEGORIA[categoria] ?? TEMI_CATEGORIA["Informatica"];
+
+
+export default function PopolariBanner({ categoryId }) {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch("/api/categories")
+      .then(res => res.json())
+      .then(data => setData(data));
+  }, []);
+
+  const cat = data.find(
+    item => item.id === Number(categoryId)
+  );
+
+  const tema = TEMI_CATEGORIA[cat?.nome] ?? TEMI_CATEGORIA["Informatica"];
   const patternSVG = getPattern(tema.patternType, tema.patternColor);
+
 
   // Solo il gradiente è inline: cambia per ogni categoria
   const sfondoDinamico = {
@@ -78,19 +113,19 @@ export default function PopolariBanner({categoria,titoloPre = "I Più Popolari d
 
       <div className="banner__contenuto">
         <p className="banner__titolo">
-          {titoloPre}{" "}
+          I Più Popolari della Categoria:{" "}
           <span
             className="banner__titolo-categoria"
             style={{ color: tema.accent }}
           >
-            {categoria}
+            {cat?.nome}
           </span>
         </p>
 
         <div className="banner__tags">
           <CategoryButton
             coloreAccento={tema.accent}
-            categoryId={1}
+            categoryId={categoryId}
           />
         </div>
       </div>

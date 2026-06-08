@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 
 import './Styles/MainCategory.css'
 import informaticaImg from '../assets/monitor-icon.svg'
@@ -32,7 +32,7 @@ function MainCatButton() {
         <div className='cardsWrapper'>
             <div className='cardsContainer'>
                 {data.map(data => (
-                    <Link className='CatButton' to={data.nome + "/"} key={data.id}>
+                    <Link className='CatButton' to={"/categoria/" + data.id} key={data.id}>
                         <img style={{ marginTop: '50px' }} src={icons[data.icona]} alt={data.nome}></img>
                         <br />
                         <p style={{ marginTop: '30px' }} >{data.nome}</p>
