@@ -24,15 +24,7 @@ export default function Home() {
       </div>
       <div className="bodyContainer">
         <div className="cards-container" style={{ marginTop: "40px" }}>
-          <MainCatButton
-            title="Informatica"
-            icon="informatica"
-            to="/informatica"
-          />
-          <MainCatButton title="Arte" icon="arte" to="/arte" />
-          <MainCatButton title="Musica" icon="musica" to="/musica" />
-          <MainCatButton title="Artigianato" icon="artigianato" to="/artigianato" />
-          <MainCatButton title="Sociali" icon="sociali" to="/Sociali" />
+          <MainCatButton />
         </div>
         <div className="tutorialContainer">
           <p>Come funziona SKILLSWAP</p>
