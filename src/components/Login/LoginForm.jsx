@@ -5,6 +5,7 @@ import { UserContext } from '../../contexts/UserContext';
 
 export default function LoginForm({ onClose }) {
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const { setUser } = useContext(UserContext);
   const { setloggedIn } = useContext(UserContext);
 
@@ -16,7 +17,7 @@ export default function LoginForm({ onClose }) {
       const users = await response.json();
 
       const foundUser = users.find(
-        (user) => user.email === email
+        (user) => user.email === email && user.password === password
       );
 
       if (foundUser) {
@@ -55,7 +56,7 @@ export default function LoginForm({ onClose }) {
             </div>
             <div className='PasswordContainer'>
               <label>Password</label>
-              <input type='password' />
+              <input type='password' value={password} onChange={(e) => setPassword(e.target.value)} />
 
             </div>
             <button className="submit-btn" onClick={handleLogin} type="button">

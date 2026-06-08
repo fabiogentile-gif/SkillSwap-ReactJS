@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import SkillPage from "./pages/SkillPage"
+import Category from "./pages/Category"
 import Home from "./pages/Home";
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
 }
 
 const router = createBrowserRouter([{ path: '/', element: <Home /> },
-{ path: "/informatica", element: <SkillPage /> }
+{ path: "/informatica", element: <Category /> }
 ]);
 
 export default App;

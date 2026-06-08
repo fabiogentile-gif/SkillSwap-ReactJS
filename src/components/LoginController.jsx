@@ -9,6 +9,7 @@ export default function LoginController() {
 
     const { loggedIn, setShowLogin, showLogin } = useContext(UserContext);
 
+
     const firstPopUp = !loggedIn && showLogin
 
     useEffect(() => {
