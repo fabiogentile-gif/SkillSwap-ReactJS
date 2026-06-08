@@ -39,7 +39,7 @@ export default function FooterBox() {
     <div className="footerBox">
       <div className="infoBox">
         {footerData.map((X) => (
-          <BoxLink links={X.link} title={X.title} />
+          <BoxLink links={X.link} title={X.title} key={X.title} />
         ))}
       </div>
 
