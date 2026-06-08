@@ -1,4 +1,5 @@
 import BoxLink from "./BoxLink.jsx";
+
 import "./Styles/Footer.css";
 import LogoImg from "../assets/Logo.svg";
 import Insta from "../assets/insta.png";
@@ -40,7 +41,7 @@ export default function FooterBox() {
         ))}
       </div>
 
-      <hr/>
+      <hr />
       <div className="underFooter">
         <button
           style={{
@@ -49,8 +50,7 @@ export default function FooterBox() {
             outline: "none",
             display: "block",
           }}>
-        <Link to="/">  <img src={LogoImg} alt="logo" /></Link>
-
+        <Link to="/"><img src={LogoImg} alt="logo" /></Link>
         </button>
         <div className="partnerLinks">
           <button>
@@ -70,7 +70,3 @@ export default function FooterBox() {
     </div>
   );
 }
-
-   <button style={{ background: "none", border: "none", outline: "none" }}>
-                  <Link to="/"><img src={LogoImg}></img></Link>
-                </button>

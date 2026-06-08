@@ -10,7 +10,7 @@
 
 .lineStyle {
   height: 3px;
-  background-color: black;
+  background-color: rgb(58, 50, 50);
   align-self: center;
   width: 100%;
 }

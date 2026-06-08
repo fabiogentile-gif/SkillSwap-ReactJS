@@ -1,11 +1,9 @@
-import { useState } from "react";
-import "bootstrap/dist/css/bootstrap.css";
-import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import SkillPage from "./SkillPage";
+
+import Category from "./pages/Category"
 import Home from "./pages/Home";
 import BasicLayout from "./layout/BasicLayout";
-import Descrizione from "./pages/Descrizione";
+import Skill from "./pages/Skill";
 function App() {
   return <RouterProvider router={router} />;
 }
@@ -20,12 +18,12 @@ const router = createBrowserRouter([
     },
     {
       path: "/informatica",
-      element: <SkillPage/>
+      element: <Category/>
     },
     {
-    path: "/descrizione",
-    element: <Descrizione />
-  }
+    path: "/skill",
+    element: <Skill />
+  },
   ]
 }  
 ]);
