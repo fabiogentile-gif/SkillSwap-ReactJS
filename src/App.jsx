@@ -7,8 +7,9 @@ function App() {
   return <RouterProvider router={router} />;
 }
 
-const router = createBrowserRouter([{ path: '/', element: <Home /> },
-{ path: "/informatica", element: <Category /> }
+const router = createBrowserRouter([
+  { path: '/', element: <Home /> },
+  { path: "/informatica", element: <Category /> }
 ]);
 
 export default App;
