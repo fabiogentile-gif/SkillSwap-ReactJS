@@ -10,7 +10,7 @@ export default function NavBar() {
     return (
         <>
             <div className='navbarContainer'>
-                <button style={{ background: "none", border: "none", outline: "none" }} onClick={() => console.log("Go to MainPage")}>
+                <button style={{ background: "none", border: "none", outline: "none" }}>
                   <Link to="/"><img src={LogoImg}></img></Link>
                 </button>
                 <SearchBar />

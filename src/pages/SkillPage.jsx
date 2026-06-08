@@ -1,14 +1,11 @@
 import { useState, useEffect } from "react";
-import "bootstrap/dist/css/bootstrap.css";
-import "./App.css";
-import MainCatButton from "./components/MainCategoryButton";
-import NavBar from "./components/NavBar";
-import SearchBar from "./components/SearchBar";
-import PopolariBanner from "./components/PopolariBanner";
-import Card from "./components/Card";
-import FooterBox from "./components/FooterBox";
+import PopolariBanner from "../components/PopolariBanner";
+import Card from "../components/Card";
 
-function SkillPage() {
+function SkillPage({
+  category = `not found`,
+  
+}) {
   const [skills, setSkills] = useState([]);
   const [loading, setIsLoading] = useState();
 
