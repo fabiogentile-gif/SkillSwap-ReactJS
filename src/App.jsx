@@ -21,7 +21,7 @@ const router = createBrowserRouter([
       element: <Category/>
     },
     {
-    path: "/skill",
+    path: "/skill/:id",
     element: <Skill />
   },
   ]

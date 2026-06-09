@@ -14,17 +14,6 @@ export default function Home() {
 
 return (
     <>
-
-     <button
-          style={{
-            background: "none",
-            border: "none",
-            outline: "none",
-            display: "block",
-          }}>
-        <Link to="/skill"><p>diwajdoiawjdo</p></Link>
-        </button>
-
       <LoginController />
       <div>
         <HeaderMain />
