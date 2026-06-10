@@ -20,7 +20,7 @@ export default function Skill() {
         </div>
         <p className="nomePro">⭐{skillData.rating}({skillData.recensioni})</p>
         <hr />
-        <img className="poster" src={skillData.poster} alt="Skill Immage" />
+        <img className="PosterSkill" src={skillData.poster} alt="Skill Immage" />
         <hr />
         <div className="SkillButton">
           <NormalButton title={"Lascia una recensione"} />
