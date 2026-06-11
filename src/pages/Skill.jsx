@@ -1,7 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { remotePlaybackFeature } from "@videojs/react";
-import FooterBox from "../components/FooterBox";
 import Profilo from "../components/Profilo";
 import VideoPlayer from "../components/VideoPlayer";
 import NormalButton from "../components/NormalButton";
