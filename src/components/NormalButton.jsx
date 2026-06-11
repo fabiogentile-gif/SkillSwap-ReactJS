@@ -1,5 +1,5 @@
 import './Components.css'
-
+import { Link } from 'react-router-dom';
 export default function NormalButton({ title, color }) {
 
     const ButtonStyle = {
@@ -18,7 +18,9 @@ export default function NormalButton({ title, color }) {
 
     return (
         <>
-            <button style={ButtonStyle} onClick={() => goTO()}>{title}</button>
+            <button style={ButtonStyle} onClick={() => goTO()}>{title}
+              <Link to="/"></Link>
+              </button>
         </>
     )
 }

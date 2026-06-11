@@ -8,17 +8,13 @@ import FooterBox from "../components/FooterBox";
 import VideoPlayer from "../components/VideoPlayer";
 import { UserContext } from "../contexts/UserContext"
 import LoginController from "../components/LoginController";
-
+import NormalButton from "../components/NormalButton";
+import { Link } from "react-router-dom";
 export default function Home() {
 
-
-  return (
+return (
     <>
       <LoginController />
-
-
-      <NavBar />
-
       <div>
         <HeaderMain />
       </div>
@@ -31,7 +27,7 @@ export default function Home() {
           <VideoPlayer />
         </div>
       </div>
-      <FooterBox />
+
     </>
   );
 }

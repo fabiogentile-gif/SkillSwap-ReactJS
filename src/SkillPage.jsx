@@ -1,39 +1,31 @@
 import { useState, useEffect } from "react";
-import PopolariBanner from "../components/PopolariBanner";
-import Card from "../components/Card";
+import "bootstrap/dist/css/bootstrap.css";
+import "./App.css";
+import MainCatButton from "./components/MainCategoryButton";
+import NavBar from "./components/NavBar";
+import SearchBar from "./components/SearchBar";
+import PopolariBanner from "./components/PopolariBanner";
+import Card from "./components/Card";
+import FooterBox from "./components/FooterBox";
 
-const BASE = "https://corsproxy.io/?https://mock-api-server-production-7f5d.up.railway.app/skillswap/api";
-
-function SkillPage({
-  category = `not found`,
-  
-}) {
+function SkillPage() {
   const [skills, setSkills] = useState([]);
-  const [loading, setIsLoading] = useState(false);
+  const [loading, setIsLoading] = useState();
 
   useEffect(() => {
     async function getSkill() {
       setIsLoading(true);
       try {
-      const [resSkill, resUser] = await Promise.all([
-        fetch(`${BASE}/services`),
-        fetch(`${BASE}/users`),
-      ]); 
-        if (!resSkill.ok || !resUser.ok) {
-          throw new Error("Fetch fallita");
+        const res = await fetch(
+          "https://corsproxy.io/?https://mock-api-server-production-7f5d.up.railway.app/skillswap/api/services",
+        );
+        if (!res.ok) {
+          throw new Error();
         }
-       const skillsData = await resSkill.json();
-        const usersData = await resUser.json();
-       const userMap = {};
-       usersData.forEach((u) => {
-        userMap[u.id] = u;        
-       });
-       const skillsConUtente = skillsData.map((skill) => ({
-        ...skill,
-        user: userMap[skill.userId] ?? null,
-       }));
-       setSkills(skillsConUtente);
-
+        const data = await res.json();
+        console.log("data intero:", data); // ← cosa c'è dentro?
+        console.log("data.skills:", data.skills);
+        setSkills(data);
       } catch (err) {
         console.error(err);
       } finally {
@@ -64,8 +56,6 @@ function SkillPage({
                 category={skill.categoryId}
                 creato={skill.createdAt}
                 poster={skill.poster}
-                userPic={skill.user?.avatar} 
-                userName={skill.user?.username}
               />
             ))
           )}
