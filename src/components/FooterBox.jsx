@@ -8,7 +8,7 @@ import Insta from "../assets/insta.png";
 import Linkedin from "../assets/Linke.png";
 import Tiktok from "../assets/TikToccati.png";
 import FaceBook from "../assets/LibroFaccia.png";
-
+import { Link } from "react-router-dom";
 const footerData = [
   {
     title: "Categorie",
@@ -39,7 +39,7 @@ export default function FooterBox() {
     <div className="footerBox">
       <div className="infoBox">
         {footerData.map((X) => (
-          <BoxLink links={X.link} title={X.title} key={X.title} />
+          <BoxLink key={X.title} links={X.link} title={X.title} />
         ))}
       </div>
 

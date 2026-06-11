@@ -1,4 +1,5 @@
 import { Link} from 'react-router-dom';
+import { useState,useEffect } from 'react';
 
 import './Styles/MainCategory.css'
 import informaticaImg from '../assets/monitor-icon.svg'
@@ -7,7 +8,6 @@ import arteImg from '../assets/brush-icon.svg'
 import musicaImg from '../assets/musicnote-icon.svg'
 import socialiImg from '../assets/user-icon.svg'
 import artigianatoImg from '../assets/ruler-icon.svg'
-import { useState,useEffect } from 'react';
 
 function MainCatButton() {
 
