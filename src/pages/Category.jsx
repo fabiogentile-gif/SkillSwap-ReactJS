@@ -3,17 +3,12 @@ import { useParams } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.css'
 import '../App.css'
 
-import MainCatButton from '../components/MainCategoryButton'
-import NavBar from '../components/NavBar'
-import SearchBar from '../components/SearchBar'
 import PopolariBanner from '../components/PopolariBanner'
 import Card from '../components/Card'
-import FooterBox from '../components/FooterBox'
 
 export default function App() {
   const { id } = useParams();
 
-  const BASE = "https://corsproxy.io/?https://mock-api-server-production-7f5d.up.railway.app/skillswap/api";
   const [skills, setSkills] = useState([]);
   const [loading, setIsLoading] = useState(false);
 
@@ -21,9 +16,10 @@ export default function App() {
     async function getSkill() {
       setIsLoading(true);
       try {
+
         const [resSkill, resUser] = await Promise.all([
-          fetch(`${BASE}/services`),
-          fetch(`${BASE}/users`),
+          fetch(`/api/services`),
+          fetch(`/api/users`),
         ]);
         if (!resSkill.ok || !resUser.ok) {
           throw new Error("Fetch fallita");
@@ -31,14 +27,23 @@ export default function App() {
         const skillsData = await resSkill.json();
         const usersData = await resUser.json();
         const userMap = {};
+
+
         usersData.forEach((u) => {
           userMap[u.id] = u;
         });
+
         const skillsConUtente = skillsData.map((skill) => ({
           ...skill,
           user: userMap[skill.userId] ?? null,
         }));
-        setSkills(skillsConUtente);
+
+        // filtro per categoria
+        setSkills(
+          skillsConUtente.filter(
+            skill => skill.categoryId === Number(id)
+          )
+        );
 
       } catch (err) {
         console.error(err);
@@ -47,7 +52,7 @@ export default function App() {
       }
     }
     getSkill();
-  }, []);
+  }, [id]);
 
 
   return (

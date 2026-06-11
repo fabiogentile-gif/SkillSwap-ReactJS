@@ -2,9 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import "../App.css";
 import MainCatButton from "../components/MainCategoryButton";
-import NavBar from "../components/NavBar";
 import HeaderMain from "../components/HeaderMain";
-import FooterBox from "../components/FooterBox";
 import VideoPlayer from "../components/VideoPlayer";
 import { UserContext } from "../contexts/UserContext"
 import LoginController from "../components/LoginController";
@@ -12,7 +10,7 @@ import NormalButton from "../components/NormalButton";
 import { Link } from "react-router-dom";
 export default function Home() {
 
-return (
+  return (
     <>
       <LoginController />
       <div>

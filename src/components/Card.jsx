@@ -21,7 +21,6 @@ export default function Card(
   const navigate = useNavigate();
   return (
     <div>
-      {console.log(ricerca)}
       <button className="card" onClick={() => navigate(`/skill/${id}`, { state: { skillData } })}>
         <img className="poster" src={poster} alt={description} />
         <hr />
