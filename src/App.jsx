@@ -4,6 +4,9 @@ import Category from "./pages/Category"
 import Home from "./pages/Home";
 import BasicLayout from "./layout/BasicLayout";
 import Skill from "./pages/Skill";
+import SearchResult from "./pages/SearchResult";
+import UserPage from "./pages/UserPage.jsx"
+
 function App() {
   return <RouterProvider router={router} />;
 }
@@ -24,6 +27,14 @@ const router = createBrowserRouter([
       {
         path: "/skill/:id",
         element: <Skill />
+      },
+      {
+        path: "/user/:id",
+        element: <UserPage />
+      },
+      {
+        path: "/search",
+        element: <SearchResult />
       },
     ]
   }
