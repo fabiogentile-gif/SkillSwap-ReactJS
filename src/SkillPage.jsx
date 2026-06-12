@@ -25,6 +25,7 @@ function SkillPage() {
         const data = await res.json();
         console.log("data intero:", data); // ← cosa c'è dentro?
         console.log("data.skills:", data.skills);
+        
         setSkills(data);
       } catch (err) {
         console.error(err);
@@ -52,7 +53,7 @@ function SkillPage() {
                 user={skill.userId}
                 ricerca={skill.cerca}
                 rating={skill.rating}
-                recensioni={skill.recensioni}
+                recensioni={skill.reviewCount}
                 category={skill.categoryId}
                 creato={skill.createdAt}
                 poster={skill.poster}
