@@ -33,8 +33,7 @@ const Icona = {
   Tessitura: "🧶",
 };
 
-export default function CategoryButton({ coloreAccento,categoryId}) {
-
+export default function CategoryButton({ coloreAccento, categoryId, onSelectSubcategory }) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -43,7 +42,7 @@ export default function CategoryButton({ coloreAccento,categoryId}) {
       .then(data => setData(data));
   }, []);
 
-    const subcategories = data.filter(
+  const subcategories = data.filter(
     item => item.categoryId === Number(categoryId)
   );
 
@@ -53,14 +52,17 @@ export default function CategoryButton({ coloreAccento,categoryId}) {
         subcategories.map(item => {
 
           return (
-            <span
-              key={item.id}
-              className="tag"
-              style={{ border: `1px solid ${coloreAccento}55` }}
-            >
-              <span>{Icona[item.nome]}</span>
-              <span>{item.nome}</span>
-            </span>
+            <button style={{ border: "none", background: "none" }} onClick={() => onSelectSubcategory(item.id)}>
+              <span
+                key={item.id}
+                className="tag"
+                style={{ border: `1px solid ${coloreAccento}55` }}
+              >
+                <span>{Icona[item.nome]}</span>
+                <span>{item.nome}</span>
+              </span>
+            </button>
+
           );
         })
       }

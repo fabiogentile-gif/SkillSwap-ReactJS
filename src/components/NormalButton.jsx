@@ -13,7 +13,7 @@ export default function NormalButton({ title, color }) {
     }
 
     function goTO() {
-        console.log("Goto page")
+        console.log( new Date().toISOString().split("T")[0])
     }
 
     return (
