@@ -1,25 +1,82 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import { remotePlaybackFeature } from "@videojs/react";
 import Profilo from "../components/Profilo";
 import VideoPlayer from "../components/VideoPlayer";
 import NormalButton from "../components/NormalButton";
 import { useLocation } from "react-router-dom";
+import Reviewcard from "../components/Reviewcard";
 
 export default function Skill() {
-  const location = useLocation();
-  const {skillData} =  location.state;
+const [user, setUser] = useState([]); 
+  const [review, setReview] = useState([]);
+  const [loading, setIsLoading] = useState(false);
+const location = useLocation();
+  const { skillData } = location.state;
+
+ useEffect(() => {
+    async function getReview() {
+      setIsLoading(true);
+      try {
+        const resUser = await fetch(`/api/users`);
+        if (!resUser.ok) {
+          throw new Error("Fetch Fallita");
+        }
+        const users = await resUser.json();
+        setUser(users);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    getReview();
+  }, []);
+
+
+
+  useEffect(() => {
+    async function getReview() {
+      setIsLoading(true);
+      try {
+        const resRev = await fetch(`/api/reviews?serviceId=${skillData.id}`);
+        if (!resRev.ok) {
+          throw new Error("Fetch Fallita");
+        }
+        const reviewData = await resRev.json();
+        const filtro = reviewData.filter(rev => rev.serviceId === Number (skillData.id))
+        setReview(filtro);
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+    getReview();
+  }, []);
+
+
+  
   return (
     <div className="SkillPageContainer">
       <div className="Skilldess">
         <h1>{skillData.title}</h1>
         <div className="SkillProfileRow">
-        <img id="ProfileSkill" src={skillData.userPic} alt="placeholder skill" />
-        <p className="nomePro">{skillData.userName}</p>
+          <img
+            id="ProfileSkill"
+            src={skillData.userPic}
+            alt="placeholder skill"
+          />
+          <p className="nomePro">{skillData.userName}</p>
         </div>
-        <p className="nomePro">⭐{skillData.rating}({skillData.recensioni})</p>
+        <p className="nomePro">
+          ⭐{skillData.rating}({skillData.recensioni})
+        </p>
         <hr />
-        <img className="PosterSkill" src={skillData.poster} alt="Skill Immage" />
+        <img
+          className="PosterSkill"
+          src={skillData.poster}
+          alt="Skill Immage"
+        />
         <hr />
         <div className="SkillButton">
           <NormalButton title={"Lascia una recensione"} />
@@ -27,12 +84,18 @@ export default function Skill() {
           <NormalButton title={"Inizia a Chattare"} />
         </div>
         <div className="SkillText">
-          <p>
-            {skillData.description}
-          </p>
+          <p>{skillData.description}</p>
         </div>
-      </div>
+        <div className="SkillReview">
+        {
+    
+          review.map((rev) => (
+          <Reviewcard key={rev.id} recensione={rev.comment} utenteR={user.find(utente => utente.id === rev.userId)?.username} rating={rev.rating}/>
+          ))
 
+        } 
+       </div>
+      </div>
       <div className="SkillAds">
         <img className="poster" src={skillData.poster} alt="Advertisment" />
       </div>

@@ -23,8 +23,6 @@ function SkillPage() {
           throw new Error();
         }
         const data = await res.json();
-        console.log("data intero:", data); // ← cosa c'è dentro?
-        console.log("data.skills:", data.skills);
         setSkills(data);
       } catch (err) {
         console.error(err);
