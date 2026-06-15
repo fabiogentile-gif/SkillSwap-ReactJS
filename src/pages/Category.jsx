@@ -9,6 +9,7 @@ import Card from "../components/Card";
 export default function App() {
   const { id } = useParams();
 
+  const [selectedSubcategory, setSelectedSubcategory] = useState(null);
   const [skills, setSkills] = useState([]);
   const [loading, setIsLoading] = useState(false);
 
@@ -53,12 +54,12 @@ export default function App() {
   return (
     <>
       <div className="MainContainer">
-        <PopolariBanner categoryId={id}></PopolariBanner>
+        <PopolariBanner categoryId={id} onSelectSubcategory={setSelectedSubcategory}></PopolariBanner>
         <div className="cardContainer">
           {loading ? (
             <p>Loading</p>
           ) : (
-            skills.map((skill) => (
+            skills.filter(skill => selectedSubcategory ? skill.subcategoryId === selectedSubcategory : true).map((skill) => (
               <Card
                 key={skill.id}
                 id={skill.id}

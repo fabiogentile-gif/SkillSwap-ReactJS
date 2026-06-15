@@ -2,6 +2,7 @@ export default function Reviewcard({
 recensione = "placeholder",
 utenteR = "mario sony",
 rating = 5,
+userPic = "https://picsum.photos/seed/${encodeURIComponent(description)}/500/300",
 })
 {
     return(
