@@ -7,13 +7,13 @@ import { useLocation } from "react-router-dom";
 import Reviewcard from "../components/Reviewcard";
 
 export default function Skill() {
-const [user, setUser] = useState([]); 
+  const [user, setUser] = useState([]);
   const [review, setReview] = useState([]);
   const [loading, setIsLoading] = useState(false);
-const location = useLocation();
+  const location = useLocation();
   const { skillData } = location.state;
 
- useEffect(() => {
+  useEffect(() => {
     async function getReview() {
       setIsLoading(true);
       try {
@@ -32,8 +32,6 @@ const location = useLocation();
     getReview();
   }, []);
 
-
-
   useEffect(() => {
     async function getReview() {
       setIsLoading(true);
@@ -43,7 +41,9 @@ const location = useLocation();
           throw new Error("Fetch Fallita");
         }
         const reviewData = await resRev.json();
-        const filtro = reviewData.filter(rev => rev.serviceId === Number (skillData.id))
+        const filtro = reviewData.filter(
+          (rev) => rev.serviceId === Number(skillData.id),
+        );
         setReview(filtro);
       } catch (err) {
         console.error(err);
@@ -54,8 +54,6 @@ const location = useLocation();
     getReview();
   }, []);
 
-
-  
   return (
     <div className="SkillPageContainer">
       <div className="Skilldess">
@@ -87,14 +85,21 @@ const location = useLocation();
           <p>{skillData.description}</p>
         </div>
         <div className="SkillReview">
-        {
-    
-          review.map((rev) => (
-          <Reviewcard key={rev.id} recensione={rev.comment} utenteR={user.find(utente => utente.id === rev.userId)?.username} rating={rev.rating}/>
-          ))
-
-        } 
-       </div>
+          {review.length === 0 ? (
+            <p>Nessuna recensione per questa skill al momento. 📝</p>
+          ) : (
+            review.map((rev) => (
+              <Reviewcard
+                key={rev.id}
+                recensione={rev.comment}
+                utenteR={
+                  user.find((utente) => utente.id === rev.userId)?.username
+                }
+                rating={rev.rating}
+              />
+            ))
+          )}
+        </div>
       </div>
       <div className="SkillAds">
         <img className="poster" src={skillData.poster} alt="Advertisment" />
