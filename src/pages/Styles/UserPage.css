@@ -1,0 +1,137 @@
+.PageContainer {
+  max-width: 1400px;
+  margin: 30px auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* SIDEBAR */
+
+.UserProfileCard {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 25px;
+  margin-bottom: 30px;
+}
+
+.UserHeader {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.UserAvatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.UserMainInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.UserNames {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.UserNames h2 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.UserNames span {
+  color: #6b7280;
+  font-size: 18px;
+}
+
+.UserRating {
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.UserBioSection {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.UserBioSection h4 {
+  margin-bottom: 10px;
+}
+
+.UserBioSection p {
+  color: #4b5563;
+  line-height: 1.6;
+}
+/* CONTENT */
+
+.UserContent {
+  flex: 1;
+}
+
+.UserContent h3 {
+  margin-bottom: 20px;
+}
+
+.ServicesGrid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fill, minmax(280px, 1fr));
+
+  gap: 20px;
+}
+
+/* CARD */
+
+.ServiceCard {
+  background: white;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.ServiceCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+}
+
+.ServiceImage {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.ServiceBody {
+  padding: 15px;
+}
+
+.ServiceBody h5 {
+  margin-bottom: 10px;
+}
+
+.ServiceBody p {
+  color: #666;
+  font-size: 14px;
+}
+
+.ServiceFooter {
+  margin-top: 15px;
+  font-weight: bold;
+}

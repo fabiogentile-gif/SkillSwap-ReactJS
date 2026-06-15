@@ -1,11 +1,15 @@
 import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
+
 import "./Styles/Profilo.css";
 import UserDeafultIcon from '../assets/user-icon.svg'
+
 import { UserContext } from "../contexts/UserContext";
 
 export default function Profilo() {
   const [isClicked, setisClicked] = useState(false);
   const { user, loggedIn, setShowLogin, setloggedIn, setUser } = useContext(UserContext);
+  const navigate = useNavigate();
 
   const handleClick = () => {
     if (loggedIn)
@@ -31,7 +35,7 @@ export default function Profilo() {
       {loggedIn && isClicked && (
         <div className="menu-dropdown">
           <ul className="menu-list">
-            <li><button className="buttonP" onClick={() => console.log("Profilo")}>Profilo</button></li>
+            <li><button className="buttonP" onClick={() => navigate(`/user/${user.id}`, { state: { user } })}>Profilo</button></li>
             <li><button className="buttonP" onClick={() => console.log("Impostazioni")}>Impostazioni</button></li>
             <hr />
             <li><button className="buttonP" onClick={handleLogOut}>Logout</button></li>
