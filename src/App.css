@@ -14,7 +14,7 @@
   scroll-snap-type: x mandatory;
 }
 
-.cards-container>* {
+.cards-container > * {
   flex: 1;
 }
 
@@ -33,7 +33,6 @@
   margin: 0 auto;
 }
 
-
 .tutorialContainer {
   display: flex;
   flex-direction: column;
@@ -50,7 +49,7 @@ hr {
   border-top: 1px solid var(--border);
 }
 
-#miniProfile{
+#miniProfile {
   width: 25px;
   height: 25px;
   border-radius: 100%;
@@ -69,7 +68,7 @@ hr {
   align-items: center;
   gap: 10px;
   padding: 5px;
-} 
+}
 
 /* FooterContainer */
 
@@ -90,10 +89,9 @@ hr {
   padding: 15px;
   overflow-wrap: break-word;
   margin: 10px;
-  
 }
 
-.LinkBox a{
+.LinkBox a {
   display: block;
   padding: 5px;
 }
@@ -102,88 +100,127 @@ hr {
   color: aqua;
 }
 
-.underFooter{
-display: flex;
-width: 100%;
-justify-content: space-between;
+.underFooter {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
 }
- .partnerLinks{
+.partnerLinks {
   display: flex;
   align-content: center;
   flex-wrap: wrap;
- }
+}
 
- .partnerLinks button{
+.partnerLinks button {
   border-radius: 50%;
- }
+}
 /* ////////////////////////////SkillPage////////////////////////////////// */
-
-.SkillPageContainer{
-display: flex;
-flex-direction: row;
-justify-content: space-around;
-}
-
-.Skilldess{
-  padding-top: 25px;
+.SkillPageContainer {
   display: flex;
-  width: 60%;
-  flex-direction: column;
-}
-
-
-.SkillAds{
-  display: flex;
-  justify-self: center;
-  height: 800px;
-  width: 20%;
-  margin: 50px;
-}
-
-.SkillAds img{
-  width: 100%;
-  height: 100%; 
-}
-
-.SkillButton{
-  display: flex;
-  justify-content:space-around ;
-}
-
-.SkillText{
-  display: flex;
-  background-color: gray;
-  width: 100%;
+  justify-content: space-around;
+  gap: 30px;
   padding: 20px;
-  margin-top: 25px;
-  font-size: 18px;
+  align-items: stretch;
 }
-.SkillProfileRow{
+.SkillPageContainer h1{
+  font-size: 60px;
+}
+
+.Skilldess {
+  width: 60%;
   display: flex;
-  align-items: start;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 5px;
-  align-items: end;
+  flex-direction: column;
+  gap: 25px;
 }
 
-.SkillProfileRow p{
-  font-size: 36px;
+.SkillAds {
+  width: 20%;
 }
 
-.PosterSkill{
+.SkillAds img {
   width: 100%;
   height: 100%;
 }
 
-.SkillReview{
-background-color: aqua;
-margin-top: 25px;
-margin-bottom: 25px;
-width: 100%;
+.SkillButton {
+  display: flex;
+  justify-content: space-around;
+  gap: 15px;
 }
 
-.ReviewCard{
-  margin: 10px;
-  background-color: aliceblue;
-} 
+.SkillText {
+  width: 100%;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 12px;
+  font-size: 18px;
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+.SkillProfileRow {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.SkillProfileRow p {
+  font-size: 36px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.PosterSkill {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.SkillReview {
+  width: 100%;
+  padding: 20px;
+  border-radius: 16px;
+
+  background: radial-gradient(
+    circle,
+    #eeeeee 0%,
+    #e3edf7 30%,
+    #cde2f8 60%,
+    #a8d0ff 85%,
+    #7ab8ff 100%
+  );
+
+  box-sizing: border-box;
+}
+
+.ReviewCard {
+  padding: 15px;
+  margin-bottom: 15px;
+
+  background: rgba(255, 255, 255, 0.85);
+
+  border-radius: 12px;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  backdrop-filter: blur(5px);
+}
+
+.ReviewCard p {
+  font-size: 20px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+#ReviewPic {
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+
+  border: 2px solid white;
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}

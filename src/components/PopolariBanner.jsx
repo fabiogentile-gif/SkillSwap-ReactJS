@@ -49,6 +49,14 @@ const TEMI_CATEGORIA = {
     patternColor: "rgba(217,119,6,0.12)",
     patternType: "wood",
   },
+
+generale: {
+  bgFrom: "#6c717ac2",
+  bgTo: "#8e949b",
+  accent: "#64748b",
+  patternColor: "rgba(100,116,139,0.10)",
+  patternType: "dots",
+}
 };
 
 export default function PopolariBanner({ categoryId, onSelectSubcategory }) {
@@ -65,22 +73,27 @@ export default function PopolariBanner({ categoryId, onSelectSubcategory }) {
     item => item.id === Number(categoryId)
   );
 
-  const tema = TEMI_CATEGORIA[cat?.nome] ?? TEMI_CATEGORIA["Informatica"];
-
+  const tema = TEMI_CATEGORIA[cat?.nome] ?? TEMI_CATEGORIA["generale"];
+  const isGenerale = !cat || cat?.nome?.trim().toLowerCase() === "generale";  
 
   // Solo il gradiente è inline: cambia per ogni categoria
   const sfondoDinamico = {
     background: `linear-gradient(135deg, ${tema.bgFrom} 0%, ${tema.bgTo} 100%)`,
   };
 
-
   return (
+
     <div className="banner" style={sfondoDinamico}>
       <svg className="banner__pattern">
         <rect width="100%" height="100%" fill="url(#pat)" />
       </svg>
 
       <div className="banner__contenuto">
+        {isGenerale ? (
+          <p className="banner__titolo">
+      "I Più Popolari del Momento"
+      </p>
+    ) : (
         <p className="banner__titolo">
           I Più Popolari della Categoria:{" "}
           <span
@@ -90,6 +103,8 @@ export default function PopolariBanner({ categoryId, onSelectSubcategory }) {
             {cat?.nome}
           </span>
         </p>
+)}
+
 
         <div className="banner__tags">
           <CategoryButton
