@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from "react-router-dom";
+
 import 'bootstrap/dist/css/bootstrap.css'
 import './Styles/UserPage.css'
 
-import PopolariBanner from '../components/PopolariBanner'
-import Card from '../components/Card'
+
 
 export default function UserPage() {
   const { id } = useParams();
