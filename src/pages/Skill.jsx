@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import Profilo from "../components/Profilo";
 import VideoPlayer from "../components/VideoPlayer";
@@ -7,6 +7,7 @@ import NormalButton from "../components/NormalButton";
 
 export default function Skill() {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const [skillData, setSkillData] = useState(null);
   const [userData, setUserData] = useState(null);
@@ -42,10 +43,10 @@ export default function Skill() {
       <div className="Skilldess">
         <h1>{skillData.title}</h1>
 
-        <div className="SkillProfileRow">
+        <button className="SkillProfileRow" style={{ border: "none", background: "none" }} onClick={() => navigate(`/user/${userData.id}`, { state: { userData } })}>
           <img id="ProfileSkill" src={userData.avatar} />
-          <p className="nomePro">{userData.userName}</p>
-        </div>
+          <p className="nomePro">{userData.username}</p>
+        </button>
 
         <p className="nomePro">
           ⭐ {skillData.rating} ({skillData.reviewCount})
