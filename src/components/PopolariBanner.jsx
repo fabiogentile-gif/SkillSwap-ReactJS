@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+ import { useState, useEffect } from 'react';
 import CategoryButton from './CategoryButton'
 
 const TEMI_CATEGORIA = {

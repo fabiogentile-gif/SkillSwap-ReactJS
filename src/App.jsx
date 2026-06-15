@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import Category from "./pages/Category"
+import Category from "./pages/Category";
 import Home from "./pages/Home";
 import BasicLayout from "./layout/BasicLayout";
 import Skill from "./pages/Skill";
@@ -18,15 +18,15 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />
+        element: <Home />,
       },
       {
         path: "/categoria/:id",
-        element: <Category />
+        element: <Category />,
       },
       {
         path: "/skill/:id",
-        element: <Skill />
+        element: <Skill />,
       },
       {
         path: "/user/:id",

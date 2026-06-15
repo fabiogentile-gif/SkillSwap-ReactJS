@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.css'
-import '../App.css'
+import "bootstrap/dist/css/bootstrap.css";
+import "../App.css";
 
-import PopolariBanner from '../components/PopolariBanner'
-import Card from '../components/Card'
+import PopolariBanner from "../components/PopolariBanner";
+import Card from "../components/Card";
 
 export default function App() {
   const { id } = useParams();
@@ -13,11 +13,11 @@ export default function App() {
   const [skills, setSkills] = useState([]);
   const [loading, setIsLoading] = useState(false);
 
+
   useEffect(() => {
     async function getSkill() {
       setIsLoading(true);
       try {
-
         const [resSkill, resUser] = await Promise.all([
           fetch(`/api/services`),
           fetch(`/api/users`),
@@ -28,7 +28,6 @@ export default function App() {
         const skillsData = await resSkill.json();
         const usersData = await resUser.json();
         const userMap = {};
-
 
         usersData.forEach((u) => {
           userMap[u.id] = u;
@@ -41,11 +40,8 @@ export default function App() {
 
         // filtro per categoria
         setSkills(
-          skillsConUtente.filter(
-            skill => skill.categoryId === Number(id)
-          )
+          skillsConUtente.filter((skill) => skill.categoryId === Number(id)),
         );
-
       } catch (err) {
         console.error(err);
       } finally {
@@ -54,8 +50,6 @@ export default function App() {
     }
     getSkill();
   }, [id]);
-
-
 
   return (
     <>

@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+
 import "bootstrap/dist/css/bootstrap.css";
-import Profilo from "../components/Profilo";
-import VideoPlayer from "../components/VideoPlayer";
+
 import NormalButton from "../components/NormalButton";
+import Reviewcard from "../components/Reviewcard.jsx"
 
 export default function Skill() {
   const { id } = useParams();
@@ -11,6 +12,9 @@ export default function Skill() {
 
   const [skillData, setSkillData] = useState(null);
   const [userData, setUserData] = useState(null);
+  const [review, setReview] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [user, setUser] = useState([]);
 
   useEffect(() => {
     async function getSkill() {
@@ -20,13 +24,21 @@ export default function Skill() {
           fetch(`/api/users`)
         ]);
 
+        if (!resSkill.ok || !resUsers.ok) {
+          throw new Error("Fetch fallita");
+        }
+
         const skill = await resSkill.json();
         const users = await resUsers.json();
 
         setSkillData(skill);
+        setUser(users);
 
-        const user = users.find(u => u.id === skill.userId);
-        setUserData(user);
+        const owner = users.find(
+          u => u.id === skill.userId
+        );
+
+        setUserData(owner);
 
       } catch (err) {
         console.error(err);
@@ -34,6 +46,34 @@ export default function Skill() {
     }
 
     getSkill();
+  }, [id]);
+
+  useEffect(() => {
+    async function getReview() {
+      setIsLoading(true);
+      try {
+        const resRev = await fetch(`/api/reviews?serviceId=${id}`);
+
+        if (!resRev.ok) {
+          throw new Error("Fetch Fallita");
+        }
+
+        const reviewData = await resRev.json();
+
+        const filtro = reviewData.filter(
+          rev => rev.serviceId === Number(id)
+        );
+
+        setReview(filtro);
+
+      } catch (err) {
+        console.error(err);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    getReview();
   }, [id]);
 
   if (!skillData || !userData) return <p>Caricamento...</p>;
@@ -67,8 +107,25 @@ export default function Skill() {
         <div className="SkillText">
           <p>{skillData.description}</p>
         </div>
+        <div className="SkillReview">
+          {review.length === 0 ? (
+            <p>Nessuna recensione per questa skill al momento. 📝</p>
+          ) : (
+            review.map((rev) => (
+              <Reviewcard
+                key={rev.id}
+                recensione={rev.comment}
+                utenteR={
+                  user.find(
+                    (utente) => utente.id === rev.userId
+                  )?.username || "Utente sconosciuto"
+                }
+                rating={rev.rating}
+              />
+            ))
+          )}
+        </div>
       </div>
-
       <div className="SkillAds">
         <img className="poster" src={skillData.poster} />
       </div>
