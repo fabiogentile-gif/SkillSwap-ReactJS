@@ -6,7 +6,7 @@ import BasicLayout from "./layout/BasicLayout";
 import Skill from "./pages/Skill";
 import SearchResult from "./pages/SearchResult";
 import UserPage from "./pages/UserPage.jsx"
-
+import SkillPage from "./SkillPage.jsx"
 function App() {
   return <RouterProvider router={router} />;
 }
@@ -36,7 +36,10 @@ const router = createBrowserRouter([
         path: "/search",
         element: <SearchResult />
       },
-      
+      {
+        path: "/SkillPage",
+        element: <SkillPage />
+      }
     ]
   }
 ]);
