@@ -128,11 +128,7 @@ export default function Skill() {
         </div>
       </div>
       <div className="SkillAds">
-        <img
-          className="poster"
-          src="https://picsum.photos/1900/1080"
-          alt="Advertisment"
-        />
+        <img className="poster" src="https://picsum.photos/1900/1080" alt="Advertisment" />
       </div>
     </div>
   );

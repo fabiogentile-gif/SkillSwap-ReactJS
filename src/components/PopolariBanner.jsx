@@ -104,6 +104,8 @@ export default function PopolariBanner({ categoryId, onSelectSubcategory }) {
           </span>
         </p>
 )}
+
+
         <div className="banner__tags">
           <CategoryButton
             coloreAccento={tema.accent}
