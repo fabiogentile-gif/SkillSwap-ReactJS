@@ -50,7 +50,6 @@ export default function CategoryButton({ coloreAccento, categoryId, onSelectSubc
     <>
       {
         subcategories.map(item => {
-
           return (
             <button style={{ border: "none", background: "none" }} onClick={() => onSelectSubcategory(item.id)}>
               <span

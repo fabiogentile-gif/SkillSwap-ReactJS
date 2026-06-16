@@ -31,6 +31,8 @@ function MainCatButton() {
     return (
         <div className='cardsWrapper'>
             <div className='cardsContainer'>
+
+
                 {data.map(data => (
                     <Link className='CatButton' to={"/categoria/" + data.id} key={data.id}>
                         <img style={{ marginTop: '50px' }} src={icons[data.icona]} alt={data.nome}></img>

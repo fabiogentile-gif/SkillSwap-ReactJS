@@ -119,13 +119,18 @@ export default function Skill() {
                   )?.username || "Utente sconosciuto"
                 }
                 rating={rev.rating}
+                userPic={user.find((pic) => pic.id === rev.userId)?.avatar}
               />
             ))
           )}
         </div>
       </div>
       <div className="SkillAds">
-        <img className="poster" src={skillData.poster} />
+        <img
+          className="poster"
+          src="https://picsum.photos/1900/1080"
+          alt="Advertisment"
+        />
       </div>
     </div>
   );
