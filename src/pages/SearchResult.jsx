@@ -15,11 +15,9 @@ export default function SearchResult() {
     useEffect(() => {
         async function getResults() {
             try {
-                const [resUsers, resServices, resCategories] = await Promise.all([
-                    fetch("/api/users"),
-                    fetch("/api/services"),
-                    fetch("/api/categories")
-                ]);
+                const resUsers = await fetch("/api/users");
+                const resServices = await fetch("/api/services");
+                const resCategories = await fetch("/api/categories");
 
                 if (!resUsers.ok || !resServices.ok || !resCategories.ok) {
                     throw new Error("Errore nel recupero dati");

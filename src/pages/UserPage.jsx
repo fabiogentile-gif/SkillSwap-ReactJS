@@ -17,10 +17,8 @@ export default function UserPage() {
   useEffect(() => {
     async function getUser() {
       try {
-        const [resSkill, resUser] = await Promise.all([
-          fetch(`/api/services`),
-          fetch(`/api/users/${id}`)
-        ]);
+        const resSkill = await fetch(`/api/services`);
+        const resUser = await fetch(`/api/users/${id}`);
 
         const skills = await resSkill.json();
         const user = await resUser.json();

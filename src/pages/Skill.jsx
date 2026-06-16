@@ -19,10 +19,8 @@ export default function Skill() {
   useEffect(() => {
     async function getSkill() {
       try {
-        const [resSkill, resUsers] = await Promise.all([
-          fetch(`/api/services/${id}`),
-          fetch(`/api/users`)
-        ]);
+        const resSkill = await fetch(`/api/services/${id}`);
+        const resUsers = await fetch(`/api/users`);
 
         if (!resSkill.ok || !resUsers.ok) {
           throw new Error("Fetch fallita");

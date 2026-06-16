@@ -18,10 +18,9 @@ export default function App() {
     async function getSkill() {
       setIsLoading(true);
       try {
-        const [resSkill, resUser] = await Promise.all([
-          fetch(`/api/services`),
-          fetch(`/api/users`),
-        ]);
+        const resSkill = await fetch(`/api/services`);
+        const resUser = await fetch(`/api/users`);
+
         if (!resSkill.ok || !resUser.ok) {
           throw new Error("Fetch fallita");
         }
