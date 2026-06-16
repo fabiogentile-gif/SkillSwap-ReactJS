@@ -54,7 +54,7 @@ export default function App() {
   return (
     <>
       <div className="MainContainer">
-        <PopolariBanner categoryId={id} onSelectSubcategory={setSelectedSubcategory}></PopolariBanner>
+        <PopolariBanner categoryId={id} onSelectSubcategory={setSelectedSubcategory}/>
         <div className="cardContainer">
           {loading ? (
             <p>Loading</p>
