@@ -1,0 +1,11 @@
+.result-card {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.result-card:hover {
+  background: #f2f2f2;
+}

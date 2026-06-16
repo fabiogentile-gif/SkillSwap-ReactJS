@@ -1,87 +1,109 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+
 import "bootstrap/dist/css/bootstrap.css";
-import Profilo from "../components/Profilo";
-import VideoPlayer from "../components/VideoPlayer";
+
 import NormalButton from "../components/NormalButton";
-import { useLocation } from "react-router-dom";
-import Reviewcard from "../components/Reviewcard";
+import Reviewcard from "../components/Reviewcard.jsx"
 
 export default function Skill() {
-  const [user, setUser] = useState([]);
+  const { id } = useParams();
+  const navigate = useNavigate();
+
+  const [skillData, setSkillData] = useState(null);
+  const [userData, setUserData] = useState(null);
   const [review, setReview] = useState([]);
-  const [loading, setIsLoading] = useState(false);
-  const location = useLocation();
-  const { skillData } = location.state;
+  const [isLoading, setIsLoading] = useState(false);
+  const [user, setUser] = useState([]);
 
   useEffect(() => {
-    async function getReview() {
-      setIsLoading(true);
+    async function getSkill() {
       try {
-        const resUser = await fetch(`/api/users`);
-        if (!resUser.ok) {
-          throw new Error("Fetch Fallita");
+        const [resSkill, resUsers] = await Promise.all([
+          fetch(`/api/services/${id}`),
+          fetch(`/api/users`)
+        ]);
+
+        if (!resSkill.ok || !resUsers.ok) {
+          throw new Error("Fetch fallita");
         }
-        const users = await resUser.json();
+
+        const skill = await resSkill.json();
+        const users = await resUsers.json();
+
+        setSkillData(skill);
         setUser(users);
+
+        const owner = users.find(
+          u => u.id === skill.userId
+        );
+
+        setUserData(owner);
+
       } catch (err) {
         console.error(err);
-      } finally {
-        setIsLoading(false);
       }
     }
-    getReview();
-  }, []);
+
+    getSkill();
+  }, [id]);
 
   useEffect(() => {
     async function getReview() {
       setIsLoading(true);
       try {
-        const resRev = await fetch(`/api/reviews?serviceId=${skillData.id}`);
+        const resRev = await fetch(`/api/reviews?serviceId=${id}`);
+
         if (!resRev.ok) {
           throw new Error("Fetch Fallita");
         }
+
         const reviewData = await resRev.json();
+
         const filtro = reviewData.filter(
-          (rev) => rev.serviceId === Number(skillData.id),
+          rev => rev.serviceId === Number(id)
         );
+
         setReview(filtro);
+
       } catch (err) {
         console.error(err);
       } finally {
         setIsLoading(false);
       }
     }
+
     getReview();
-  }, []);
+  }, [id]);
+
+  if (!skillData || !userData) return <p>Caricamento...</p>;
 
   return (
     <div className="SkillPageContainer">
       <div className="Skilldess">
         <h1>{skillData.title}</h1>
-        <div className="SkillProfileRow">
-          <img
-            id="ProfileSkill"
-            src={skillData.userPic}
-            alt="placeholder skill"
-          />
-          <p className="nomePro">{skillData.userName}</p>
-          <p className="nomePro">
-            ⭐{skillData.rating}({skillData.recensioni})
-          </p>
-        </div>
+
+        <button className="SkillProfileRow" style={{ border: "none", background: "none" }} onClick={() => navigate(`/user/${userData.id}`, { state: { userData } })}>
+          <img id="ProfileSkill" src={userData.avatar} />
+          <p className="nomePro">{userData.username}</p>
+        </button>
+
+        <p className="nomePro">
+          ⭐ {skillData.rating} ({skillData.reviewCount})
+        </p>
 
         <hr />
-        <img
-          className="PosterSkill"
-          src={skillData.poster}
-          alt="Skill Immage"
-        />
+
+        <img className="PosterSkill" src={skillData.poster} />
+
         <hr />
+
         <div className="SkillButton">
-          <NormalButton title={"Lascia una recensione"} />
-          <NormalButton title={"Metti tra i preferiti"} />
-          <NormalButton title={"Inizia a Chattare"} />
+          <NormalButton title="Lascia una recensione" />
+          <NormalButton title="Metti tra i preferiti" />
+          <NormalButton title="Inizia a Chattare" />
         </div>
+
         <div className="SkillText">
           <p>{skillData.description}</p>
         </div>
@@ -94,7 +116,9 @@ export default function Skill() {
                 key={rev.id}
                 recensione={rev.comment}
                 utenteR={
-                  user.find((utente) => utente.id === rev.userId)?.username
+                  user.find(
+                    (utente) => utente.id === rev.userId
+                  )?.username || "Utente sconosciuto"
                 }
                 rating={rev.rating}
                 userPic={user.find((pic) => pic.id === rev.userId)?.avatar}
