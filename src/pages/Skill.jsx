@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.css";
+import "./Styles/Skill.css"
 
-import NormalButton from "../components/NormalButton";
+import NormalButton from "../components/NormalButton.jsx";
 import Reviewcard from "../components/Reviewcard.jsx"
 
 export default function Skill() {
@@ -78,23 +79,30 @@ export default function Skill() {
 
   return (
     <div className="SkillPageContainer">
-      <div className="Skilldess">
+      <div className="SkillMain">
+
         <h1>{skillData.title}</h1>
 
-        <button className="SkillProfileRow" style={{ border: "none", background: "none" }} onClick={() => navigate(`/user/${userData.id}`, { state: { userData } })}>
+        <button
+          className="SkillProfileRow"
+          onClick={() =>
+            navigate(`/user/${userData.id}`, { state: { userData } })
+          }
+        >
           <img id="ProfileSkill" src={userData.avatar} />
-          <p className="nomePro">{userData.username}</p>
+
+          <div className="SkillUserInfo">
+            <p className="SkillName">
+              {userData.firstName} @{userData.username}
+            </p>
+
+            <p className="SkillRating">
+              ⭐ {skillData.rating} ({skillData.reviewCount} recensioni)
+            </p>
+          </div>
         </button>
 
-        <p className="nomePro">
-          ⭐ {skillData.rating} ({skillData.reviewCount})
-        </p>
-
-        <hr />
-
         <img className="PosterSkill" src={skillData.poster} />
-
-        <hr />
 
         <div className="SkillButton">
           <NormalButton title="Lascia una recensione" />
@@ -103,20 +111,23 @@ export default function Skill() {
         </div>
 
         <div className="SkillText">
+          <h2>Descrizione</h2>
           <p>{skillData.description}</p>
         </div>
+
         <div className="SkillReview">
+          <h2>Recensioni</h2>
+
           {review.length === 0 ? (
-            <p>Nessuna recensione per questa skill al momento. 📝</p>
+            <p>Nessuna recensione per questa skill al momento.</p>
           ) : (
             review.map((rev) => (
               <Reviewcard
                 key={rev.id}
                 recensione={rev.comment}
                 utenteR={
-                  user.find(
-                    (utente) => utente.id === rev.userId
-                  )?.username || "Utente sconosciuto"
+                  user.find((utente) => utente.id === rev.userId)?.username ||
+                  "Utente sconosciuto"
                 }
                 rating={rev.rating}
                 userPic={user.find((pic) => pic.id === rev.userId)?.avatar}
@@ -125,12 +136,16 @@ export default function Skill() {
           )}
         </div>
       </div>
+
       <div className="SkillAds">
-        <img
-          className="poster"
-          src="https://picsum.photos/1900/1080"
-          alt="Advertisment"
-        />
+        <div className="AdCard">
+          <span className="AdLabel">Sponsor</span>
+
+          <img
+            src="https://picsum.photos/400/800"
+            alt="Advertisement"
+          />
+        </div>
       </div>
     </div>
   );

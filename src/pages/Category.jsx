@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
-import "../App.css";
+import "./Styles/Category.css";
 
 import PopolariBanner from "../components/PopolariBanner";
 import Card from "../components/Card";

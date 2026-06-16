@@ -1,0 +1,219 @@
+/* ==================== PAGINA ==================== */
+
+.SkillPageContainer {
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 0 30px;
+
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 40px;
+    align-items: start;
+
+    background: #ffffff;
+}
+
+.SkillMain {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.SkillMain h1 {
+    font-size: 38px;
+    font-weight: 700;
+    color: #222325;
+    margin: 0;
+}
+
+/* ==================== PROFILO ==================== */
+
+.SkillProfileRow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    border: none;
+    background: none;
+    cursor: pointer;
+
+    padding: 0;
+}
+
+#ProfileSkill {
+    width: 64px;
+    height: 64px;
+
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.SkillUserInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.SkillName {
+    font-size: 18px;
+    font-weight: 600;
+    color: #222325;
+    margin: 0;
+}
+
+.SkillRating {
+    font-size: 14px;
+    color: #74767e;
+    margin: 0;
+    text-align: left;
+}
+
+/* ==================== IMMAGINE ==================== */
+
+.PosterSkill {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+
+    border: 1px solid #e4e5e7;
+}
+
+/* ==================== BOTTONI ==================== */
+
+.SkillButton {
+    display: flex;
+justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* ==================== DESCRIZIONE ==================== */
+
+.SkillText {
+    background: white;
+
+    border: 1px solid #e4e5e7;
+    border-radius: 12px;
+
+    padding: 25px;
+}
+
+.SkillText h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+
+    font-size: 22px;
+    color: #222325;
+}
+
+.SkillText p {
+    margin: 0;
+
+    line-height: 1.8;
+    font-size: 16px;
+
+    color: #404145;
+}
+
+/* ==================== RECENSIONI ==================== */
+
+.SkillReview {
+    background: white;
+
+    border: 1px solid #e4e5e7;
+    border-radius: 12px;
+
+    padding: 25px;
+}
+
+.SkillReview h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+
+    font-size: 22px;
+    color: #222325;
+}
+
+/* ==================== CARD RECENSIONE ==================== */
+
+.ReviewCard {
+    padding: 20px;
+    margin-bottom: 15px;
+
+    background: white;
+
+    border: 1px solid #e4e5e7;
+    border-radius: 12px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .04);
+}
+
+.ReviewCard p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #404145;
+}
+
+#ReviewPic {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* ==================== SIDEBAR ==================== */
+
+.SkillAds {
+    width: 320px;
+    position: sticky;
+    top: 100px;
+}
+
+.AdCard {
+    background: white;
+
+    border: 1px solid #e4e5e7;
+    border-radius: 12px;
+
+    padding: 12px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .05);
+}
+
+.AdLabel {
+    display: block;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    color: #74767e;
+
+    margin-bottom: 10px;
+
+    text-transform: uppercase;
+}
+
+.AdCard img {
+    width: 100%;
+    height: 500px;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+
+    display: block;
+}
+
+/* ==================== MOBILE ==================== */
+
+@media (max-width: 1000px) {
+    .SkillPageContainer {
+        grid-template-columns: 1fr;
+    }
+
+    .SkillAds {
+        position: static;
+    }
+}
