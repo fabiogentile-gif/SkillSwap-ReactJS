@@ -5,6 +5,7 @@ import "./Styles/Category.css";
 
 import PopolariBanner from "../components/PopolariBanner";
 import Card from "../components/Card";
+import LoginController from "../components/LoginController.jsx"
 
 export default function App() {
   const { id } = useParams();
@@ -52,8 +53,9 @@ export default function App() {
 
   return (
     <>
+      <LoginController />
       <div className="MainContainer">
-        <PopolariBanner categoryId={id} onSelectSubcategory={setSelectedSubcategory}/>
+        <PopolariBanner categoryId={id} onSelectSubcategory={setSelectedSubcategory} />
         <div className="serviceCardsContainer">
           {loading ? (
             <p>Loading</p>

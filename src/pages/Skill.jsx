@@ -6,6 +6,7 @@ import "./Styles/Skill.css"
 
 import NormalButton from "../components/NormalButton.jsx";
 import Reviewcard from "../components/Reviewcard.jsx"
+import LoginController from "../components/LoginController.jsx"
 
 export default function Skill() {
   const { id } = useParams();
@@ -78,75 +79,79 @@ export default function Skill() {
   if (!skillData || !userData) return <p>Caricamento...</p>;
 
   return (
-    <div className="SkillPageContainer">
-      <div className="SkillMain">
+    <>
+      <LoginController />
+      <div className="SkillPageContainer">
+        <div className="SkillMain">
 
-        <h1>{skillData.title}</h1>
+          <h1>{skillData.title}</h1>
 
-        <button
-          className="SkillProfileRow"
-          onClick={() =>
-            navigate(`/user/${userData.id}`, { state: { userData } })
-          }
-        >
-          <img id="ProfileSkill" src={userData.avatar} />
+          <button
+            className="SkillProfileRow"
+            onClick={() =>
+              navigate(`/user/${userData.id}`, { state: { userData } })
+            }
+          >
+            <img id="ProfileSkill" src={userData.avatar} />
 
-          <div className="SkillUserInfo">
-            <p className="SkillName">
-              {userData.firstName} @{userData.username}
-            </p>
+            <div className="SkillUserInfo">
+              <p className="SkillName">
+                {userData.firstName} @{userData.username}
+              </p>
 
-            <p className="SkillRating">
-              ⭐ {skillData.rating} ({skillData.reviewCount} recensioni)
-            </p>
+              <p className="SkillRating">
+                ⭐ {skillData.rating} ({skillData.reviewCount} recensioni)
+              </p>
+            </div>
+          </button>
+
+          <img className="PosterSkill" src={skillData.poster} />
+
+          <div className="SkillButton">
+            <NormalButton title="Lascia una recensione" />
+            <NormalButton title="Metti tra i preferiti" />
+            <NormalButton title="Inizia a Chattare" />
           </div>
-        </button>
 
-        <img className="PosterSkill" src={skillData.poster} />
+          <div className="SkillText">
+            <h2>Descrizione</h2>
+            <p>{skillData.description}</p>
+          </div>
 
-        <div className="SkillButton">
-          <NormalButton title="Lascia una recensione" />
-          <NormalButton title="Metti tra i preferiti" />
-          <NormalButton title="Inizia a Chattare" />
+          <div className="SkillReview">
+            <h2>Recensioni</h2>
+
+            {review.length === 0 ? (
+              <p>Nessuna recensione per questa skill al momento.</p>
+            ) : (
+              review.map((rev) => (
+                <Reviewcard
+                  key={rev.id}
+                  recensione={rev.comment}
+                  utenteR={
+                    user.find((utente) => utente.id === rev.userId)?.username ||
+                    "Utente sconosciuto"
+                  }
+                  rating={rev.rating}
+                  userPic={user.find((pic) => pic.id === rev.userId)?.avatar}
+                />
+              ))
+            )}
+          </div>
         </div>
 
-        <div className="SkillText">
-          <h2>Descrizione</h2>
-          <p>{skillData.description}</p>
-        </div>
+        <div className="SkillAds">
+          <div className="AdCard">
+            <span className="AdLabel">Sponsor</span>
 
-        <div className="SkillReview">
-          <h2>Recensioni</h2>
-
-          {review.length === 0 ? (
-            <p>Nessuna recensione per questa skill al momento.</p>
-          ) : (
-            review.map((rev) => (
-              <Reviewcard
-                key={rev.id}
-                recensione={rev.comment}
-                utenteR={
-                  user.find((utente) => utente.id === rev.userId)?.username ||
-                  "Utente sconosciuto"
-                }
-                rating={rev.rating}
-                userPic={user.find((pic) => pic.id === rev.userId)?.avatar}
-              />
-            ))
-          )}
-        </div>
-      </div>
-
-      <div className="SkillAds">
-        <div className="AdCard">
-          <span className="AdLabel">Sponsor</span>
-
-          <img
-            src="https://picsum.photos/400/800"
-            alt="Advertisement"
-          />
+            <img
+              src="https://picsum.photos/400/800"
+              alt="Advertisement"
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </>
+
   );
 }

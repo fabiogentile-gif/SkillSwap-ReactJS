@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 
+import LoginController from "../components/LoginController.jsx"
+
 import './Styles/SearchResult.css'
 
 export default function SearchResult() {
@@ -49,13 +51,13 @@ export default function SearchResult() {
         }
     }, [query]);
 
-const categoriesMap = Object.fromEntries(
-    categories.map(category => [category.id, category.nome])
-);
+    const categoriesMap = Object.fromEntries(
+        categories.map(category => [category.id, category.nome])
+    );
 
     return (
         <div className="SearchPage">
-
+            <LoginController />
             <div className="SearchHeader">
                 <h1>Risultati per "{query}"</h1>
                 <p>
