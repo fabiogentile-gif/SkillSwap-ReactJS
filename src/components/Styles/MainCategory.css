@@ -1,30 +1,132 @@
-.cardsContainer {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 50px;
+/* CONTAINER CATEGORIE */
 
-  overflow-x: auto;
-  justify-content: flex-start;
-  text-align: center;
+.homepageCategories {
+    max-width: 1400px;
+
+    margin: 0 auto;
+    padding: 40px 20px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(180px, 1fr));
+
+    gap: 24px;
+}
+
+
+/* CARD */
+
+.homepageCategoryCard {
+    background: #f5f5f5;
+
+    border: 1px solid #e4e5e7;
+    border-radius: 16px;
+
+    min-height: 180px;
+
+    text-decoration: none;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 18px;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        border-color .2s ease;
+}
+
+.homepageCategoryCard:hover {
+    transform: translateY(-5px);
+
+    border-color: #00B4D8;
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, .08);
+}
+
+
+/* ICONA */
+
+.homepageCategoryIcon {
+    width: 70px;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.homepageCategoryIcon img {
+    width: 64px;
+    height: 64px;
+
+    object-fit: contain;
+
+    transition: transform .2s ease;
+}
+
+.homepageCategoryCard:hover .homepageCategoryIcon img {
+    transform: scale(1.08);
+}
+
+
+/* NOME CATEGORIA */
+
+.homepageCategoryName {
+    color: #404145;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    text-align: center;
+
+    padding: 0 10px;
+}
+
+
+/* TABLET */
+
+@media (max-width: 900px) {
+
+    .homepageCategories {
+        grid-template-columns:
+            repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+    .homepageCategoryCard {
+        min-height: 160px;
+    }
 
 }
 
-.CatButton {
-  flex: 0 0 auto;
 
-  width: 200px;
-  height: 200px;
+/* MOBILE */
 
-  border: 1px solid black;
-  background-color: #F5F5F5;
-  color: black;
-  box-shadow: 4px 5px rgba(0, 0, 0, 0.25);
-  box-sizing: border-box;
-  text-decoration: none;
-}
+@media (max-width: 600px) {
 
-.cardsWrapper {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+    .homepageCategories {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 16px;
+    }
+
+    .homepageCategoryCard {
+        min-height: 140px;
+    }
+
+    .homepageCategoryIcon img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .homepageCategoryName {
+        font-size: 14px;
+    }
+
 }

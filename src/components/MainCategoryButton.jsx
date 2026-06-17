@@ -1,5 +1,5 @@
-import { Link} from 'react-router-dom';
-import { useState,useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 import './Styles/MainCategory.css'
 import informaticaImg from '../assets/monitor-icon.svg'
@@ -29,19 +29,25 @@ function MainCatButton() {
     };
 
     return (
-        <div className='cardsWrapper'>
-            <div className='cardsContainer'>
+        <div className="homepageCategories">
+            {data.map((categoria) => (
+                <Link
+                    key={categoria.id}
+                    to={`/categoria/${categoria.id}`}
+                    className="homepageCategoryCard"
+                >
+                    <div className="homepageCategoryIcon">
+                        <img
+                            src={icons[categoria.icona]}
+                            alt={categoria.nome}
+                        />
+                    </div>
 
-
-                {data.map(data => (
-                    <Link className='CatButton' to={"/categoria/" + data.id} key={data.id}>
-                        <img style={{ marginTop: '50px' }} src={icons[data.icona]} alt={data.nome}></img>
-                        <br />
-                        <p style={{ marginTop: '30px' }} >{data.nome}</p>
-                    </Link>
-                ))}
-
-            </div>
+                    <span className="homepageCategoryName">
+                        {categoria.nome}
+                    </span>
+                </Link>
+            ))}
         </div>
     )
 }
