@@ -23,36 +23,18 @@ export default function RegistrationForm({ onCloseBig, onClose, onClickLogin }) 
     const hasNumber = /\d/.test(password);
 
 
-
-    async function handleRegister() {
-
-        const passwordValid =
-            hasMinLength &&
-            hasUpperCase &&
-            hasLowerCase &&
-            hasNumber;
-
-        if (!passwordValid) {
-            return;
-        }
-
-        const newUser = {
-            username,
-            firstName,
-            lastName,
-            email,
-            password,
-            avatar: UserDeafultIcon,
-            joinedAt: new Date().toISOString().split("T")[0]
-        };
-
-        console.log("Nuovo utente:", newUser);
-
-        setUser(newUser);
-        setloggedIn(true);
-    }
-
     // async function handleRegister() {
+
+    //     const passwordValid =
+    //         hasMinLength &&
+    //         hasUpperCase &&
+    //         hasLowerCase &&
+    //         hasNumber;
+
+    //     if (!passwordValid) {
+    //         return;
+    //     }
+
     //     const newUser = {
     //         username,
     //         firstName,
@@ -63,26 +45,47 @@ export default function RegistrationForm({ onCloseBig, onClose, onClickLogin }) 
     //         joinedAt: new Date().toISOString().split("T")[0]
     //     };
 
-    //     try {
-    //         const response = await fetch("/api/users", {
-    //             method: "POST",
-    //             headers: {
-    //                 "Content-Type": "application/json",
-    //             },
-    //             body: JSON.stringify(newUser),
-    //         });
+    //     console.log("Nuovo utente:", newUser);
 
-    //         if (!response.ok) {
-    //             throw new Error("Errore nella registrazione");
-    //         }
-
-    //         const data = await response.json();
-    //         console.log("Utente creato:", data);
-
-    //     } catch (error) {
-    //         console.error(error);
-    //     }
+    //     setUser(newUser);
+    //     setloggedIn(true);
     // }
+
+    async function handleRegister() {
+        const newUser = {
+            username,
+            firstName,
+            lastName,
+            email,
+            password,
+            avatar: UserDeafultIcon,
+            joinedAt: new Date().toISOString().split("T")[0]
+        };
+
+        try {
+            const response = await fetch("/api/users", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(newUser),
+            });
+
+            if (!response.ok) {
+                throw new Error("Errore nella registrazione");
+            }
+
+
+            const data = await response.json();
+            console.log("Utente creato:", data);
+            
+            setUser(newUser);
+            setloggedIn(true);
+
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
 
 

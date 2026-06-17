@@ -27,6 +27,7 @@
     border: 2px solid transparent;
 
     transition: .2s ease;
+    background-color: white;
 }
 
 .userMenuAvatar:hover {

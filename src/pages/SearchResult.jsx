@@ -89,7 +89,7 @@ export default function SearchResult() {
                                 <div className="UserInfo">
                                     <h3>{user.username}</h3>
                                     <p>{user.bio}</p>
-                                    <p>⭐{user.rating}</p>
+                                    <p>⭐{user.rating || 0} </p>
                                 </div>
                             </Link>
                         ))}
