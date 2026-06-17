@@ -59,7 +59,10 @@ export default function RegistrationForm({ onCloseBig, onClose, onClickLogin }) 
             email,
             password,
             avatar: UserDeafultIcon,
-            joinedAt: new Date().toISOString().split("T")[0]
+            joinedAt: new Date().toISOString().split("T")[0],
+            bio: "",
+            rating: 0.0,
+            reviewCount: 0
         };
 
         try {
@@ -78,7 +81,7 @@ export default function RegistrationForm({ onCloseBig, onClose, onClickLogin }) 
 
             const data = await response.json();
             console.log("Utente creato:", data);
-            
+
             setUser(newUser);
             setloggedIn(true);
 
