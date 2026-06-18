@@ -4,6 +4,7 @@ import "./App.css";
 
 import PopolariBanner from "./components/PopolariBanner";
 import Card from "./components/Card";
+import LoginController from "./components/LoginController.jsx"
 
 export default function SkillPage() {
   const [skills, setSkills] = useState([]);
@@ -51,6 +52,7 @@ export default function SkillPage() {
 
   return (
     <div className="MainContainer">
+      <LoginController />
       <PopolariBanner />
 
       <div className="cardContainer">

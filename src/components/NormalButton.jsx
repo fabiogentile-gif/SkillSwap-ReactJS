@@ -6,7 +6,7 @@ export default function NormalButton({ title, color }) {
     background: color,
     borderRadius: "20px",
     border: "1px solid black",
-    width: "20em",
+    width: "18em",
     height: "3em",
     display: "grid",
     alignContent: "center",

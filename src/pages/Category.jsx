@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
-import "../App.css";
+import "./Styles/Category.css";
 
 import PopolariBanner from "../components/PopolariBanner";
 import Card from "../components/Card";
+import LoginController from "../components/LoginController.jsx"
 
 export default function App() {
   const { id } = useParams();
@@ -18,10 +19,9 @@ export default function App() {
     async function getSkill() {
       setIsLoading(true);
       try {
-        const [resSkill, resUser] = await Promise.all([
-          fetch(`/api/services`),
-          fetch(`/api/users`),
-        ]);
+        const resSkill = await fetch(`/api/services`);
+        const resUser = await fetch(`/api/users`);
+
         if (!resSkill.ok || !resUser.ok) {
           throw new Error("Fetch fallita");
         }
@@ -53,9 +53,10 @@ export default function App() {
 
   return (
     <>
+      <LoginController />
       <div className="MainContainer">
-        <PopolariBanner categoryId={id} onSelectSubcategory={setSelectedSubcategory}/>
-        <div className="cardContainer">
+        <PopolariBanner categoryId={id} onSelectSubcategory={setSelectedSubcategory} />
+        <div className="serviceCardsContainer">
           {loading ? (
             <p>Loading</p>
           ) : (

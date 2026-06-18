@@ -1,11 +1,144 @@
-.result-card {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  padding: 10px;
-  border-radius: 8px;
+.SearchPage {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
 }
 
-.result-card:hover {
-  background: #f2f2f2;
+.SearchHeader {
+    margin-bottom: 40px;
+}
+
+.SearchHeader h1 {
+    margin: 0 0 8px;
+}
+
+.SearchHeader p {
+    margin: 0;
+    color: #6b7280;
+}
+
+.ResultsSection {
+    margin-bottom: 40px;
+}
+
+.ResultsSection h2 {
+    margin-bottom: 16px;
+}
+
+/* LISTA */
+
+.ResultsGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* CARD GENERICA */
+
+.UserCard,
+.ServiceSearchCard {
+    display: flex;
+    gap: 20px;
+
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+
+    padding: 20px;
+
+    text-decoration: none;
+    color: inherit;
+
+    transition: .2s ease;
+}
+
+.UserCard:hover,
+.ServiceSearchCard:hover {
+    border-color: #d1d5db;
+    transform: translateY(-2px);
+}
+
+/* UTENTE */
+
+.UserAvatar {
+    width: 72px;
+    height: 72px;
+
+    border-radius: 50%;
+    object-fit: cover;
+
+    flex-shrink: 0;
+}
+
+.UserInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.UserInfo h3 {
+    margin: 0;
+}
+
+.UserInfo p {
+    margin: 0;
+    color: #6b7280;
+}
+
+.UserInfo p:last-child {
+    color: #111827;
+    font-weight: 600;
+}
+
+/* SERVIZIO */
+
+.ServiceInfo {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ServiceInfo h3 {
+    margin: 0;
+    color: #111827;
+}
+
+.ServiceInfo p {
+    margin: 0;
+
+    color: #6b7280;
+    line-height: 1.5;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+}
+
+.ServiceCategory {
+    align-self: flex-start;
+
+    background: #f3f4f6;
+    color: #374151;
+
+    padding: 6px 12px;
+    border-radius: 999px;
+
+    font-size: .85rem;
+    font-weight: 500;
+}
+
+/* EMPTY */
+
+.EmptyBox {
+    padding: 20px;
+
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+
+    color: #6b7280;
 }

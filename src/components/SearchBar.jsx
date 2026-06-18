@@ -14,6 +14,9 @@ export default function SearchBar() {
         e.preventDefault();
         if (!search.trim()) return;
 
+        // this will encode & symbols that may inadvertently be 
+        // generated during data entry for character references or other characters 
+        // that require encoding/decoding
         navigate(`/search?q=${encodeURIComponent(search)}`);
     }
 

@@ -1,4 +1,4 @@
- import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import CategoryButton from './CategoryButton'
 
 const TEMI_CATEGORIA = {
@@ -49,14 +49,16 @@ const TEMI_CATEGORIA = {
     patternColor: "rgba(217,119,6,0.12)",
     patternType: "wood",
   },
+  generale: {
+    bgFrom: "#1e293b",
+    bgTo: "#334155",
 
-generale: {
-  bgFrom: "#6c717ac2",
-  bgTo: "#8e949b",
-  accent: "#64748b",
-  patternColor: "rgba(100,116,139,0.10)",
-  patternType: "dots",
-}
+    accent: "#94a3b8",
+
+    patternColor: "rgba(148,163,184,0.10)",
+
+    patternType: "grid",
+  }
 };
 
 export default function PopolariBanner({ categoryId, onSelectSubcategory }) {
@@ -74,7 +76,7 @@ export default function PopolariBanner({ categoryId, onSelectSubcategory }) {
   );
 
   const tema = TEMI_CATEGORIA[cat?.nome] ?? TEMI_CATEGORIA["generale"];
-  const isGenerale = !cat || cat?.nome?.trim().toLowerCase() === "generale";  
+  const isGenerale = !cat || cat?.nome?.trim().toLowerCase() === "generale";
 
   // Solo il gradiente è inline: cambia per ogni categoria
   const sfondoDinamico = {
@@ -91,19 +93,19 @@ export default function PopolariBanner({ categoryId, onSelectSubcategory }) {
       <div className="banner__contenuto">
         {isGenerale ? (
           <p className="banner__titolo">
-      "I Più Popolari del Momento"
-      </p>
-    ) : (
-        <p className="banner__titolo">
-          I Più Popolari della Categoria:{" "}
-          <span
-            className="banner__titolo-categoria"
-            style={{ color: tema.accent }}
-          >
-            {cat?.nome}
-          </span>
-        </p>
-)}
+            I Più Popolari del Momento
+          </p>
+        ) : (
+          <p className="banner__titolo">
+            I Più Popolari della Categoria:{" "}
+            <span
+              className="banner__titolo-categoria"
+              style={{ color: tema.accent }}
+            >
+              {cat?.nome}
+            </span>
+          </p>
+        )}
         <div className="banner__tags">
           <CategoryButton
             coloreAccento={tema.accent}

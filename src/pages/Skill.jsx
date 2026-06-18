@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.css";
+import "./Styles/Skill.css"
 
-import NormalButton from "../components/NormalButton";
+import NormalButton from "../components/NormalButton.jsx";
 import Reviewcard from "../components/Reviewcard.jsx"
+import LoginController from "../components/LoginController.jsx"
 
 export default function Skill() {
   const { id } = useParams();
@@ -19,10 +21,8 @@ export default function Skill() {
   useEffect(() => {
     async function getSkill() {
       try {
-        const [resSkill, resUsers] = await Promise.all([
-          fetch(`/api/services/${id}`),
-          fetch(`/api/users`)
-        ]);
+        const resSkill = await fetch(`/api/services/${id}`);
+        const resUsers = await fetch(`/api/users`);
 
         if (!resSkill.ok || !resUsers.ok) {
           throw new Error("Fetch fallita");
@@ -79,61 +79,79 @@ export default function Skill() {
   if (!skillData || !userData) return <p>Caricamento...</p>;
 
   return (
-    <div className="SkillPageContainer">
-      <div className="Skilldess">
-        <h1>{skillData.title}</h1>
+    <>
+      <LoginController />
+      <div className="SkillPageContainer">
+        <div className="SkillMain">
 
-        <button className="SkillProfileRow" style={{ border: "none", background: "none" }} onClick={() => navigate(`/user/${userData.id}`, { state: { userData } })}>
-          <img id="ProfileSkill" src={userData.avatar} />
-          <p className="nomePro">{userData.username}</p>
-        </button>
+          <h1>{skillData.title}</h1>
 
-        <p className="nomePro">
-          ⭐ {skillData.rating} ({skillData.reviewCount})
-        </p>
+          <button
+            className="SkillProfileRow"
+            onClick={() =>
+              navigate(`/user/${userData.id}`, { state: { userData } })
+            }
+          >
+            <img id="ProfileSkill" src={userData.avatar} />
 
-        <hr />
+            <div className="SkillUserInfo">
+              <p className="SkillName">
+                {userData.firstName} @{userData.username}
+              </p>
 
-        <img className="PosterSkill" src={skillData.poster} />
+              <p className="SkillRating">
+                ⭐ {skillData.rating} ({skillData.reviewCount} recensioni)
+              </p>
+            </div>
+          </button>
 
-        <hr />
+          <img className="PosterSkill" src={skillData.poster} />
 
-        <div className="SkillButton">
-          <NormalButton title="Lascia una recensione" />
-          <NormalButton title="Metti tra i preferiti" />
-          <NormalButton title="Inizia a Chattare" />
+          <div className="SkillButton">
+            <NormalButton title="Lascia una recensione" />
+            <NormalButton title="Metti tra i preferiti" />
+            <NormalButton title="Inizia a Chattare" />
+          </div>
+
+          <div className="SkillText">
+            <h2>Descrizione</h2>
+            <p>{skillData.description}</p>
+          </div>
+
+          <div className="SkillReview">
+            <h2>Recensioni</h2>
+
+            {review.length === 0 ? (
+              <p>Nessuna recensione per questa skill al momento.</p>
+            ) : (
+              review.map((rev) => (
+                <Reviewcard
+                  key={rev.id}
+                  recensione={rev.comment}
+                  utenteR={
+                    user.find((utente) => utente.id === rev.userId)?.username ||
+                    "Utente sconosciuto"
+                  }
+                  rating={rev.rating}
+                  userPic={user.find((pic) => pic.id === rev.userId)?.avatar}
+                />
+              ))
+            )}
+          </div>
         </div>
 
-        <div className="SkillText">
-          <p>{skillData.description}</p>
-        </div>
-        <div className="SkillReview">
-          {review.length === 0 ? (
-            <p>Nessuna recensione per questa skill al momento. 📝</p>
-          ) : (
-            review.map((rev) => (
-              <Reviewcard
-                key={rev.id}
-                recensione={rev.comment}
-                utenteR={
-                  user.find(
-                    (utente) => utente.id === rev.userId
-                  )?.username || "Utente sconosciuto"
-                }
-                rating={rev.rating}
-                userPic={user.find((pic) => pic.id === rev.userId)?.avatar}
-              />
-            ))
-          )}
+        <div className="SkillAds">
+          <div className="AdCard">
+            <span className="AdLabel">Sponsor</span>
+
+            <img
+              src="https://picsum.photos/400/800"
+              alt="Advertisement"
+            />
+          </div>
         </div>
       </div>
-      <div className="SkillAds">
-        <img
-          className="poster"
-          src="https://picsum.photos/1900/1080"
-          alt="Advertisment"
-        />
-      </div>
-    </div>
+    </>
+
   );
 }

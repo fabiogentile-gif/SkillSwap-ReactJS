@@ -25,21 +25,68 @@ export default function Profilo() {
 
   return (
 
-    <div className="dropdown-container">
+    <div className="userMenu">
       <button
-        className="profilo-botton"
+        className="userMenuTrigger"
         onClick={handleClick}
       >
-        <img src={user ? user?.avatar : UserDeafultIcon} alt="Profilo" />
+        <img
+          src={user ? user.avatar : UserDeafultIcon}
+          alt="Profilo"
+          className="userMenuAvatar"
+        />
       </button>
+
       {loggedIn && isClicked && (
-        <div className="menu-dropdown">
-          <ul className="menu-list">
-            <li><button className="buttonP" onClick={() => navigate(`/user/${user.id}`, { state: { user } })}>Profilo</button></li>
-            <li><button className="buttonP" onClick={() => console.log("Impostazioni")}>Impostazioni</button></li>
-            <hr />
-            <li><button className="buttonP" onClick={handleLogOut}>Logout</button></li>
-          </ul>
+        <div className="userMenuDropdown">
+
+          <div className="userMenuHeader">
+            <img
+              src={user ? user.avatar : UserDeafultIcon}
+              alt="Profilo"
+              className="userMenuHeaderAvatar"
+            />
+
+            <div className="userMenuHeaderInfo">
+              <span className="userMenuName">
+                {user?.username}
+              </span>
+
+              <span className="userMenuSubtext">
+                Account personale
+              </span>
+            </div>
+          </div>
+
+          <div className="userMenuDivider" />
+
+          <button
+            className="userMenuItem"
+            onClick={() =>
+              navigate(`/user/${user.id}`, {
+                state: { user }
+              })
+            }
+          >
+            👤 Profilo
+          </button>
+
+          <button
+            className="userMenuItem"
+            onClick={() => console.log("Impostazioni")}
+          >
+            ⚙️ Impostazioni
+          </button>
+
+          <div className="userMenuDivider" />
+
+          <button
+            className="userMenuItem userMenuLogout"
+            onClick={handleLogOut}
+          >
+            Esci
+          </button>
+
         </div>
       )}
     </div>
